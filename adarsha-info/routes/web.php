@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('student-login');
+});
+Route::get('/backend', function () {
+    return view('admin.admin-login');
 });
