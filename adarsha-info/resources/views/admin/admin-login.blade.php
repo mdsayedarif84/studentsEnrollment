@@ -78,6 +78,6 @@
         </div>
       </div>
     </div>
-
+    @include('admin.links.js.js')
   </body>
 </html>

@@ -8,13 +8,7 @@
                 <div class="card card-mini mb-4">
                   <div class="card-body">
                     <h2 class="mb-1">71,503</h2>
-                    @php
-                      $id   = Session::get('admin_id');
-                      $email   = Session::get('email');
-                      echo $id;
-                      echo $email;
-                    @endphp 
-                    <p>Online Signups</p>
+                    <h3 class="text-danger">All Student</h3>
                   <div class="chartjs-wrapper">
                     <canvas id="barChart"></canvas>
                   </div>
@@ -25,7 +19,7 @@
               <div class="card card-mini  mb-4">
                 <div class="card-body">
                   <h2 class="mb-1">9,503</h2>
-                  <p>New Visitors Today</p>
+                  <h3 class="text-danger">All Teacher</h3>
                   <div class="chartjs-wrapper">
                     <canvas id="dual-line"></canvas>
                   </div>
@@ -36,7 +30,7 @@
               <div class="card card-mini mb-4">
                 <div class="card-body">
                   <h2 class="mb-1">71,503</h2>
-                  <p>Monthly Total Order</p>
+                  <h3 class="text-danger">Tution Fee</h3>
                 <div class="chartjs-wrapper">
                   <canvas id="area-chart"></canvas>
                 </div>
@@ -47,7 +41,7 @@
                     <div class="card card-mini mb-4">
                       <div class="card-body">
                         <h2 class="mb-1">9,503</h2>
-                        <p>Total Revenue This Year</p>
+                        <h3 class="text-danger">Revenue</h3>
                       <div class="chartjs-wrapper">
                         <canvas id="line"></canvas>
                       </div>

@@ -13,7 +13,6 @@
     <link href="https://cdn.materialdesignicons.com/4.4.95/css/materialdesignicons.min.css" rel="stylesheet" />
     @include('admin.links.css.css')
   </head> 
-
   <body class="" id="body">
     <div class="container d-flex align-items-center justify-content-center vh-100">
       <div class="row justify-content-center">

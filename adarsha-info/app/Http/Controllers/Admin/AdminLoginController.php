@@ -23,6 +23,7 @@ class AdminLoginController extends Controller
                 ->where('password',$password)
                 ->first();
                 if($admin){
+                    Session::put('adminData',$admin);
                     Session::put('email',$admin->email);
                     Session::put('admin_id',$admin->id);
                     return Redirect::to('/dashboard');

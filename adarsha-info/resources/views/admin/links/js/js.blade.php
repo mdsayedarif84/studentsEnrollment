@@ -17,3 +17,10 @@
     <script src="{{asset('admin/assets/js/sleek.js')}}"></script>
     <link href="{{asset('admin/assets/options/optionswitch.css')}}" rel="stylesheet">
     <script src="{{asset('admin/assets/options/optionswitcher.js')}}"></script>
+    <script>
+        $(document).ready(function (){
+            $('#msg').click(function (){
+                $(this).text(' ');
+            });
+        });
+    </script>
