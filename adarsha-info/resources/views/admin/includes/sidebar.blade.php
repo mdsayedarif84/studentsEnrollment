@@ -15,11 +15,9 @@
                     <path class="logo-fill-white" fill="#FFF" d="M11 4v25l8 4V0z" />
                   </g>
                 </svg>
-
-                <span class="brand-name text-truncate">Sleek Dashboard</span>
+                <span class="brand-name text-truncate">Admin Dashboard</span>
               </a>
             </div>
-
             <!-- begin sidebar scrollbar -->
             <div class="" data-simplebar style="height: 100%;">
               <!-- sidebar menu -->
@@ -30,32 +28,13 @@
                     <i class="mdi mdi-view-dashboard-outline"></i>
                     <span class="nav-text">Dashboard</span> <b class="caret"></b>
                   </a>
-
-                  <ul class="collapse show" id="dashboard" data-parent="#sidebar-menu">
-                    <div class="sub-menu">
-                      <li class="active">
-                        <a class="sidenav-item-link" href="index.html">
-                          <span class="nav-text">Ecommerce</span>
-                        </a>
-                      </li>
-
-                      <li class="">
-                        <a class="sidenav-item-link" href="analytics.html">
-                          <span class="nav-text">Analytics</span>
-                          <span class="badge badge-success">new</span>
-                        </a>
-                      </li>
-                    </div>
-                  </ul>
                 </li>
-
                 <li class="has-sub ">
                   <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
                     aria-expanded="false" aria-controls="app">
                     <i class="mdi mdi-pencil-box-multiple"></i>
                     <span class="nav-text">App</span> <b class="caret"></b>
                   </a>
-
                   <ul class="collapse " id="app" data-parent="#sidebar-menu">
                     <div class="sub-menu">
                       <li class="">
@@ -63,13 +42,11 @@
                           <span class="nav-text">Chat</span>
                         </a>
                       </li>
-
                       <li class="">
                         <a class="sidenav-item-link" href="contacts.html">
                           <span class="nav-text">Contacts</span>
                         </a>
                       </li>
-
                       <li class="">
                         <a class="sidenav-item-link" href="team.html">
                           <span class="nav-text">Team</span>

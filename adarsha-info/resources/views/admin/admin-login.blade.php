@@ -34,9 +34,20 @@
                 </a>
               </div>
             </div>
+            <h4 class="text-center text-danger" id="msg">
+              @php
+              $message   = Session::get('msg');
+              if($message){
+                echo $message;
+                Session::put('msg',null); 
+              }
+              @endphp              
+            </h4>
+            
+           
             <div class="card-body p-5">
               <h4 class="text-dark mb-5">Sign In</h4>
-              <form method="POST"  action="{{route('dasboard')}}">
+              <form method="POST"  action="{{route('admin-dashboard')}}">
                 @csrf
                 <div class="row">
                   <div class="form-group col-md-12 mb-4">

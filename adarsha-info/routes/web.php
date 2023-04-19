@@ -10,5 +10,6 @@ use App\Http\Controllers\Student\StudentLoginController;
 // });
 Route::get('/', [StudentLoginController::class, 'index'])->name('student-login');
 Route::get('/backend', [AdminLoginController::class, 'index'])->name('admin-login');
-Route::post('/dashboard', [AdminLoginController::class, 'dashboard'])->name('dasboard');
+Route::post('/admin_login', [AdminLoginController::class, 'adminLogin'])->name('admin-dashboard');
+Route::get('/dashboard', [AdminLoginController::class, 'dashboard'])->name('dashboard');
 

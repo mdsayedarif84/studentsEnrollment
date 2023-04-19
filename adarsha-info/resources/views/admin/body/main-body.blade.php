@@ -8,6 +8,12 @@
                 <div class="card card-mini mb-4">
                   <div class="card-body">
                     <h2 class="mb-1">71,503</h2>
+                    @php
+                      $id   = Session::get('admin_id');
+                      $email   = Session::get('email');
+                      echo $id;
+                      echo $email;
+                    @endphp 
                     <p>Online Signups</p>
                   <div class="chartjs-wrapper">
                     <canvas id="barChart"></canvas>
