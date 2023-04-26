@@ -28,12 +28,26 @@ class AdminLoginController extends Controller
                     Session::put('admin_id',$admin->id);
                     return Redirect::to('/dashboard');
                 }else{
-                    Session::put('msg','Email Or Password Invalid');
+                    Session::put('message','Email Or Password Invalid');
                     return Redirect::to('/backend');
                 }
     }
+    //adminLogout
+    public function logout(){
+        Session::put('name',null);
+        Session::put('id',null);
+        return Redirect::to('/backend');
+    }
     public function dashboard(){
         return view('admin.body.main-body');
+
+    }
+    public function myProfile(){
+        return view('admin.headerDopMenu.myProfile');
+
+    }
+    public function setting(){
+        return view('admin.headerDopMenu.setting');
 
     }
 }

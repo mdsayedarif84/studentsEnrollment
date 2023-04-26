@@ -36,11 +36,11 @@
             </div>
             <h4 class="text-center text-danger" id="msg">
               @php
-              $message   = Session::get('msg');
-              if($message){
-                echo $message;
-                Session::put('msg',null); 
-              }
+                $message   = Session::get('message');
+                if($message){
+                  echo $message;
+                  Session::put('message',null); 
+                }
               @endphp              
             </h4>
             

@@ -23,8 +23,7 @@
               <!-- sidebar menu -->
               <ul class="nav sidebar-inner" id="sidebar-menu">
                 <li class="has-sub active expand">
-                  <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#dashboard"
-                    aria-expanded="false" aria-controls="dashboard">
+                  <a class="sidenav-item-link" href="{{route('dashboard')}}" >
                     <i class="mdi mdi-view-dashboard-outline"></i>
                     <span class="nav-text">Dashboard</span> <b class="caret"></b>
                   </a>
@@ -56,15 +55,13 @@
                     <i class="mdi mdi-folder-multiple-outline"></i>
                     <span class="nav-text">Add Student</span> <b class="caret"></b>
                   </a>
-
                   <ul class="collapse " id="components" data-parent="#sidebar-menu">
                     <div class="sub-menu">
                       <li class="">
-                        <a class="sidenav-item-link" href="alert.html">
-                          <span class="nav-text">Alert</span>
+                        <a class="sidenav-item-link" href="{{route('add-student')}}">
+                          <span class="nav-text">Add Student</span>
                         </a>
                       </li>
-
                       <li class="">
                         <a class="sidenav-item-link" href="badge.html">
                           <span class="nav-text">Badge</span>
@@ -83,13 +80,13 @@
                   <ul class="collapse " id="icons" data-parent="#sidebar-menu">
                     <div class="sub-menu">
                       <li class="">
-                        <a class="sidenav-item-link" href="material-icon.html">
+                        <a class="sidenav-item-link" href="{{route('tution-fee')}}">
                           <span class="nav-text">Tution Fee</span>
                         </a>
                       </li>
 
                       <li class="">
-                        <a class="sidenav-item-link" href="flag-icon.html">
+                        <a class="sidenav-item-link" href="{{route('result')}}">
                           <span class="nav-text">Result</span>
                         </a>
                       </li>
@@ -107,27 +104,27 @@
                   <ul class="collapse " id="forms" data-parent="#sidebar-menu">
                     <div class="sub-menu">
                       <li class="">
-                        <a class="sidenav-item-link" href="basic-input.html">
+                        <a class="sidenav-item-link" href="{{route('six')}}">
                           <span class="nav-text">Six</span>
                         </a>
                       </li>
                       <li class="">
-                        <a class="sidenav-item-link" href="input-group.html">
+                        <a class="sidenav-item-link" href="{{route('seven')}}">
                           <span class="nav-text">Seven</span>
                         </a>
                       </li>
                       <li class="">
-                        <a class="sidenav-item-link" href="checkbox-radio.html">
+                        <a class="sidenav-item-link" href="{{route('eight')}}">
                           <span class="nav-text">Eight</span>
                         </a>
                       </li>
                       <li class="">
-                        <a class="sidenav-item-link" href="form-validation.html">
+                        <a class="sidenav-item-link" href="{{route('nine')}}">
                           <span class="nav-text">Nine</span>
                         </a>
                       </li>
                       <li class="">
-                        <a class="sidenav-item-link" href="form-advance.html">
+                        <a class="sidenav-item-link" href="{{route('ten')}}">
                           <span class="nav-text">Ten</span>
                         </a>
                       </li>
@@ -143,32 +140,9 @@
                   <ul class="collapse " id="tables" data-parent="#sidebar-menu">
                     <div class="sub-menu">
                       <li class="">
-                        <a class="sidenav-item-link" href="basic-tables.html">
-                          <span class="nav-text">Basic Tables</span>
+                        <a class="sidenav-item-link" href="{{route('all-teacher')}}">
+                          <span class="nav-text">All Teacher</span>
                         </a>
-                      </li>
-                      <li class="has-sub ">
-                        <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#data-tables"
-                          aria-expanded="false" aria-controls="data-tables">
-                          <span class="nav-text">Data Tables</span> <b class="caret"></b>
-                        </a>
-
-                        <ul class="collapse " id="data-tables">
-                          <div class="sub-menu">
-                            <li class="">
-                              <a href="basic-data-table.html">Basic Data Table</a>
-                            </li>
-                           <li class="">
-                              <a href="responsive-data-table.html">Responsive Data Table</a>
-                            </li>
-                           <li class="">
-                              <a href="hoverable-data-table.html">Hoverable Data Table</a>
-                            </li>
-                           <li class="">
-                              <a href="expendable-data-table.html">Expendable Data Table</a>
-                            </li>
-                          </div>
-                        </ul>
                       </li>
                     </div>
                   </ul>

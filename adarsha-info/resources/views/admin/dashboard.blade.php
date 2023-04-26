@@ -9,7 +9,7 @@
     <!-- theme meta -->
     <meta name="theme-name" content="sleek" />
     
-    <title>Dashboard</title>
+    <title>@yield('title')</title>
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet" />
     <link href="https://cdn.materialdesignicons.com/4.4.95/css/materialdesignicons.min.css" rel="stylesheet" />
@@ -59,11 +59,6 @@
         @include('admin.includes.footer')
       </div> <!-- End Page Wrapper -->
     </div> <!-- End Wrapper -->
-    <!-- <script type="module">
-      import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
-      const el = document.createElement('pwa-update');
-      document.body.appendChild(el);
-    </script> -->
     <!-- Javascript -->
     @include('admin.links.js.js')
   </body>

@@ -7,5 +7,7 @@ use Illuminate\Http\Request;
 
 class TutionFeeController extends Controller
 {
-    //
+    public function tutionfee(){
+        return view('admin.StudentInformation.tutionFee');
+       }  
 }

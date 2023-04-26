@@ -1,4 +1,7 @@
 @extends('admin.dashboard')
+@section('title')
+    Dashboard
+@endsection
 @section('body')
   <div class="content-wrapper">
           <!-- content -->

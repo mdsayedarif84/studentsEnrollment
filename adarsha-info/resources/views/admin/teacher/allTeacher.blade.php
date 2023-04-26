@@ -1,7 +1,7 @@
 @extends('admin.dashboard')
 @section('title')
-    Six
+    Teacher
 @endsection
 @section('body')
-six
+    Teacher
 @endsection
