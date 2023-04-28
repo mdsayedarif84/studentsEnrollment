@@ -53,7 +53,7 @@
                   <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#components"
                     aria-expanded="false" aria-controls="components">
                     <i class="mdi mdi-folder-multiple-outline"></i>
-                    <span class="nav-text">Add Student</span> <b class="caret"></b>
+                    <span class="nav-text">Student</span> <b class="caret"></b>
                   </a>
                   <ul class="collapse " id="components" data-parent="#sidebar-menu">
                     <div class="sub-menu">
@@ -63,8 +63,8 @@
                         </a>
                       </li>
                       <li class="">
-                        <a class="sidenav-item-link" href="badge.html">
-                          <span class="nav-text">Badge</span>
+                        <a class="sidenav-item-link" href="{{route('all-student')}}">
+                          <span class="nav-text">All Student</span>
                         </a>
                       </li>
                     </div>
@@ -271,12 +271,9 @@
                       </li>
                     </div>
                   </ul>
-                </li>
-
-                
+                </li>                
               </ul>
             </div>
 
-            
           </div>
         </aside>

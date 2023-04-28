@@ -189,7 +189,6 @@
         function checkPasswordMatch() {
         var pwd = $("#password").val();
         var cpwd = $("#password_confirm").val();
-
         if (pwd != cpwd)
             $("#match").html("Passwords do not match!").addClass('text-danger').removeClass('text-success');
         else
