@@ -11,6 +11,7 @@
     <link id="sleek-css" rel="stylesheet" href="{{asset('admin/assets/css/sleek.css')}}" />
     <!-- datatable -->
     <link href="{{asset('admin/assets/plugins/data-tables/datatables.bootstrap4.min.css')}}" rel='stylesheet'>
+    <link href="{{asset('admin/assets/plugins/icon/material-design-icon.css')}}" rel='stylesheet'>
     <link href="{{asset('admin/assets/plugins/data-tables/jquery.datatables.min.css')}}" rel='stylesheet'>
 
    
