@@ -6,8 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Session;
 use DB;
-use Redirect;
 use App\Models\AddStudent;
+use Intervention\Image\Facades\Image;
+
 
 
 class AddstudentController extends Controller
@@ -16,19 +17,20 @@ class AddstudentController extends Controller
     return view('admin.student.addStudent');
    }
    protected function DataValidation($request){
-        $this->validate($request, [
-            'stu_name' => 'required|min:3|max:50',
-            'stu_roll' => 'required|regex:/^[0-9]+$/',
-            'father_name' => 'required|regex:/^[a-zA-Z\s]+$/',
-            'mother_name' => 'required|regex:/^[a-zA-Z\s]+$/',
-            'stu_email' => 'required|unique:add_students|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
-            'password' => 'required||regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/|min:6|',
-            'stu_class' => 'required',
-            'admission_year' => 'required',
-            'address' => 'required',
-            'stu_image' => 'required',
-            'stu_phone' => 'required|max:11',
-        ],
+        $this->validate($request, 
+            [
+                'stu_name' => 'required|min:3|max:50',
+                'stu_roll' => 'required|regex:/^[0-9]+$/',
+                'father_name' => 'required|regex:/^[a-zA-Z\s]+$/',
+                'mother_name' => 'required|regex:/^[a-zA-Z\s]+$/',
+                'stu_email' => 'required|unique:add_students|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
+                'password' => 'required||regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/|min:6|',
+                'stu_class' => 'required',
+                'admission_year' => 'required',
+                'address' => 'required',
+                'stu_image' => 'required',
+                'stu_phone' => 'required|max:11',
+            ],
             [
                 'stu_name.required' => 'Your name must be required!',
                 'stu_roll.required' => 'Please Fill Up This Roll',
@@ -42,45 +44,80 @@ class AddstudentController extends Controller
             ]
         );
     }
-   
-   public function saveStudent(Request $request){
-      $this->DataValidation($request);
-      $studentData=array();
-      $studentData["stu_name"]       = $request->stu_name;
-      $studentData["stu_roll"]       = $request->stu_roll;
-      $studentData["father_name"]    = $request->father_name;
-      $studentData["mother_name"]    = $request->mother_name;
-      $studentData["stu_email"]      = $request->stu_email;
-      $studentData["password"]       = bcrypt($request->password);
-      $studentData["stu_class"]      = $request->stu_class;
-      $studentData["address"]        = $request->address;
-      $studentData["stu_phone"]      = $request->stu_phone;
-      $studentData["admission_year"] = $request->admission_year	;
-      $image      =$request->file('stu_image');
-      if($image){
-         $image_name    =  $request->stu_name;
-         $ext           =  strtolower($image->getClientOriginalExtension());
-         $img_full_name =  $image_name.'.'.$ext;  
-         $upload_path   =  'stu_image/';
-         $image_url     =  $upload_path.$img_full_name;
-         $success       =  $image->move($upload_path,$img_full_name);
-         if($success){
-            $studentData["stu_image"]  =  $image_url;
-            DB::table('add_students')->insert($studentData);
-            Session::put('message','Student Data Save Successfully');
-            // return $studentData;
-            return Redirect::to('/addStudent');
-         }
-      }
-      // $studentData["stu_image"]  =  $image_url;
-      // DB::table('add_students')->insert($studentData);
-      // Session::put('message','Studen Data Save Successfully');
-      // return Redirect::to('/addStudent');
+    protected function studentImageUpload($request)
+    {
+        $studentImage = $request->file('stu_image');
+        $filetype = $studentImage->getClientOriginalExtension();
+        $imageName = $request->stu_name.'.'.$filetype;
+        $directory = 'stu_image/';
+        $imageUrl = $directory.$imageName;
+        Image::make($studentImage)->resize(300,300)->save($imageUrl);
+        return $imageUrl;
+    }
+    public function saveStudentInfo($request, $imageUrl)
+    {
+        $student = new AddStudent();
+        $student->stu_name = $request->stu_name;
+        $student->stu_roll = $request->stu_roll;
+        $student->father_name = $request->father_name;
+        $student->mother_name = $request->mother_name;
+        $student->stu_email = $request->stu_email;
+        $student->stu_class = $request->stu_class;
+        $student->stu_image = $imageUrl;
+        $student->address = $request->address;
+        $student->stu_phone = $request->stu_phone;
+        $student->admission_year = $request->admission_year;
+        $student->password = bcrypt($request->password);
+        $student->save();
+    }
+    public function sotre(Request $request)
+    {
+        $this->DataValidation($request);
+        $imageUrl = $this->studentImageUpload($request);
+        $this->saveStudentInfo($request, $imageUrl);
+        return redirect('/addStudent')->with('message', 'Student Info Save Successfully');
+    }
 
-      // DB::table('add_students')->insert($studentData);
-      // Session::put('message','Studen Data Save Successfully');
-      // return Redirect::to('/addStudent');
-   }
+    public function editStudent($id)
+    {
+        $student = DB::table('add_students')
+            ->where('id',$id)
+            ->first();
+        return view('admin.student.edit-student',['student'=>$student]); 
+    }
+    public function updateStudentBsicInfo($student,$request,$imageUrl = null){
+        $student->stu_name = $request->stu_name;
+        $student->stu_roll = $request->stu_roll;
+        $student->father_name = $request->father_name;
+        $student->mother_name = $request->mother_name;
+        $student->stu_email = $request->stu_email;
+        $student->stu_class = $request->stu_class;
+        if ($imageUrl) {
+            $student->stu_image = $imageUrl;
+        }
+        $student->address = $request->address;
+        $student->stu_phone = $request->stu_phone;
+        $student->admission_year = $request->admission_year;
+        if ($request->password != '') {
+            $student->password = bcrypt($request->password);
+        } else {
+            $student->password = $request->password;
+        }
+        $student->save();
+    }
+    public function studnetFinalUpdateInfo(Request $request)
+    {
+        $studentImage = $request->file('stu_image');
+        $student   =   AddStudent::find($request->stu_id);
+        if ($studentImage) {
+            unlink($student->stu_image);
+            $imageUrl = $this->studentImageUpload($request);
+            $this->updateStudentBsicInfo($student,$request, $imageUrl);
+        } else {
+            $this->updateStudentBsicInfo($student,$request);
+        }
+        return redirect('/allStudent')->with('message', 'Student Info Update Successfully');
+    }
    public function emailCheck($email)
     {
         $studentEmail = AddStudent::where('email', $email)->first();
@@ -90,4 +127,5 @@ class AddstudentController extends Controller
             echo 'This Email Available for you !';
         }
     }
+    
 }

@@ -6,6 +6,8 @@
     <link href="{{asset('admin/assets/plugins/daterangepicker/daterangepicker.css')}}" rel='stylesheet'>
     <!-- <link href="{{asset('admin/assets/plugins/toastr/toastr.min.css')}}" rel='stylesheet'> -->
     <link href="{{asset('admin/assets/options/optionswitch.css')}}" rel="stylesheet">
+<!-- inovice -->
+<link href="{{asset('admin/assets/plugins/invoice/css/invoice.css')}}">
 
     <!-- SLEEK CSS -->
     <link id="sleek-css" rel="stylesheet" href="{{asset('admin/assets/css/sleek.css')}}" />
@@ -19,3 +21,4 @@
     <link href="{{asset('admin/assets/img/favicon.png')}}" rel="shortcut icon" />
     
     <script src="{{asset('admin/assets/plugins/nprogress/nprogress.js')}}"></script>
+    

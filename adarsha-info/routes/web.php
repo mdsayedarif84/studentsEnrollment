@@ -34,8 +34,14 @@ Route::get('/myprofile', [AdminLoginController::class, 'myProfile'])->name('my-p
 Route::get('/setting', [AdminLoginController::class, 'setting'])->name('setting');
 //Student
 Route::get('/addStudent', [AddstudentController::class, 'addStudent'])->name('add-student');
-Route::post('/saveStudent', [AddstudentController::class, 'saveStudent'])->name('save-student');
+Route::post('/saveStudent', [AddstudentController::class, 'sotre'])->name('save-student');
+Route::get('/edit-student/{id}', [AddstudentController::class, 'editStudent'])->name('edit-student');
+Route::post('/update-student', [AddstudentController::class, 'studnetFinalUpdateInfo'])->name('update-student');
+
 Route::get('/allStudent', [AllstudentController::class, 'allStudent'])->name('all-student');
+Route::get('/delete/{id}', [AllstudentController::class, 'deleteStudent'])->name('delete-student');
+Route::get('/view-student/{id}', [AllstudentController::class, 'studnetView'])->name('view-student');
+
 //StudentInformation
 Route::get('/tutionfee', [TutionFeeController::class, 'tutionfee'])->name('tution-fee');
 Route::get('/result', [ResultController::class, 'result'])->name('result');

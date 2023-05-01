@@ -1,6 +1,6 @@
 @extends('admin.dashboard')
 @section('title')
-    AddStudent
+    EditStudent
 @endsection
 @section('body')
     <style>
@@ -24,19 +24,20 @@
                 <div class="card-body">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="text-danger text-bold"> Add Student
+                            <h4 class="text-danger text-bold"> Edit Student
                                 <a href="{{route('all-student')}}" class="btn btn-danger btn-sm float-right">
                                     <span class="mdi-hand-pointing-right"> </span>All Student</a>
                             </h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{route('save-student')}}" method="POST" enctype="multipart/form-data"  class="form-horizontal" >
+                            <form action="{{route('update-student')}}" method="POST" id="editCategoryForm" enctype="multipart/form-data"  class="form-horizontal" >
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group row">
-                                        <label for="stu_name" class="col-sm-4 col-form-label text-right">Student Name</label>
+                                        <label for="stu_name"  class="col-sm-4 col-form-label text-right">Student Name</label>
                                         <div class="col-sm-8">
-                                            <input type="text" name="stu_name" value="{{ old('stu_name') }}" class="form-control @error('stu_name') is-invalid @enderror" id="stu_name" placeholder="Enter stu_name">
+                                            <input type="text" name="stu_name" value="{{ $student->stu_name }}" class="form-control" id="stu_name">
+                                            <input type="hidden" name="stu_id" value="{{ $student->id }}" class="form-control" id="stu_id">
                                             @error('stu_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->has('stu_name') ? $errors->first('stu_name') : ' '  }}</strong>
@@ -47,7 +48,7 @@
                                     <div class="form-group row">
                                         <label for="stu_roll" class="col-sm-4 col-form-label text-right">Student Roll</label>
                                         <div class="col-sm-8">
-                                            <input type="number" name="stu_roll" value="{{ old('stu_roll') }}" class="form-control @error('stu_roll') is-invalid @enderror" id="name" placeholder="Enter stu_roll">
+                                            <input type="number" name="stu_roll" value="{{ $student->stu_roll }}" class="form-control" id="name" >
                                             @error('stu_roll')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->has('stu_roll') ? $errors->first('stu_roll') : ' '  }}</strong>
@@ -58,7 +59,7 @@
                                     <div class="form-group row">
                                         <label for="father_name" class="col-sm-4 col-form-label text-right">Father Name</label>
                                         <div class="col-sm-8">
-                                            <input type="text" name="father_name" value="{{ old('father_name') }}" class="form-control @error('father_name') is-invalid @enderror" id="name" placeholder="Enter father_name ">
+                                            <input type="text" name="father_name" value="{{ $student->father_name }}" class="form-control " id="name">
                                             @error('father_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->has('father_name') ? $errors->first('father_name') : ' '  }}</strong>
@@ -69,7 +70,7 @@
                                     <div class="form-group row">
                                         <label for="mother_name" class="col-sm-4 col-form-label text-right">Mother Name</label>
                                         <div class="col-sm-8">
-                                            <input type="text" name="mother_name" value="{{ old('mother_name') }}" class="form-control @error('mother_name') is-invalid @enderror" id="mother_name" placeholder="Enter mother_name">
+                                            <input type="text" name="mother_name" value="{{ $student->mother_name }}" class="form-control " id="mother_name">
                                             @error('mother_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->has('mother_name') ? $errors->first('mother_name') : ' '  }}</strong>
@@ -80,7 +81,7 @@
                                     <div class="form-group row">
                                         <label for="stu_email" class="col-sm-4 col-form-label text-right">Student Email</label>
                                         <div class="col-sm-8">
-                                            <input id="email" type="email" name="stu_email" value="{{ old('stu_email') }}" class="form-control @error('stu_email') is-invalid @enderror"  placeholder="Enter stu_email">
+                                            <input id="email" type="email" name="stu_email" value="{{ $student->stu_email }}" class="form-control " >
                                             <span class="text-danger" id="res"></span>
                                             @error('stu_email')
                                                 <span class="invalid-feedback" role="alert">
@@ -92,7 +93,7 @@
                                     <div class="form-group row">
                                         <label for="password" class="col-sm-4 col-form-label text-right">Password</label>
                                         <div class="col-sm-8 showPassword">
-                                            <input id="password"  type="password" name="password" value="{{ old('password') }}" class="form-control @error('password') is-invalid @enderror" placeholder="Enter password">
+                                            <input id="password"  type="password" name="password" value="{{ $student->password }}" class="form-control " >
                                             <i class="mdi mdi-eye-off text-danger " id="togglePassword"></i>
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
@@ -104,7 +105,7 @@
                                     <div class="form-group row">
                                         <label for="password_confirm" class="col-sm-4 col-form-label text-right">Confirm Password</label>
                                         <div class="col-sm-8">
-                                            <input id="password_confirm" onChange="checkPasswordMatch();"  type="password" name="password_confirmation" value="{{ old('password') }}" class="form-control " placeholder="Enter password">
+                                            <input id="password_confirm" onChange="checkPasswordMatch();"  type="password" name="password_confirmation" value="{{ old('password') }}" class="form-control " >
                                             <span class="text-danger" id="match"></span>
                                                                                     
                                         </div>
@@ -112,7 +113,7 @@
                                     <div class="form-group row">
                                         <label for="admission_year	" class="col-sm-4 col-form-label text-right">Admission Year</label>
                                         <div class="col-sm-8">
-                                            <input type="date" value="{{ old('admission_year	') }}" name="admission_year" class="form-control @error('admission_year	') is-invalid @enderror" id="admission_year" placeholder="Enter admission_year">
+                                            <input type="date" value="{{$student->admission_year}}" name="admission_year" class="form-control " id="admission_year">
                                             @error('admission_year	')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->has('admission_year	') ? $errors->first('admission_year	') : ' '  }}</strong>
@@ -123,7 +124,7 @@
                                     <div class="form-group row">
                                         <label for="address" class="col-sm-4 col-form-label text-right">Address</label>
                                         <div class="col-sm-8">
-                                            <input type="text" value="{{ old('address') }}" name="address" class="form-control @error('address') is-invalid @enderror" id="name" placeholder="Enter Address">
+                                            <input type="text" value="{{ $student->address }}" name="address" class="form-control " id="name" >
                                             @error('address')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->has('address') ? $errors->first('address') : ' '  }}</strong>
@@ -134,7 +135,7 @@
                                     <div class="form-group row">
                                         <label for="stu_phone" class="col-sm-4 col-form-label text-right">Student Phone</label>
                                         <div class="col-sm-8">
-                                            <input type="number" value="{{ old('stu_phone') }}" name="stu_phone" class="form-control @error('stu_phone') is-invalid @enderror" id="name" placeholder="Enter Stu Phone">
+                                            <input type="number" value="{{ $student->stu_phone }}" name="stu_phone" class="form-control " id="name">
                                             @error('stu_phone')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->has('stu_phone') ? $errors->first('stu_phone') : ' '  }}</strong>
@@ -145,7 +146,7 @@
                                     <div class="form-group row">
                                         <label for="stu_class" class="col-sm-4 col-form-label text-right">Sudent Class</label>
                                         <div class="col-sm-8">
-                                            <select name="stu_class" class="form-select form-control @error('stu_class') is-invalid @enderror" >
+                                            <select name="stu_class" class="form-select form-control " >
                                                 <option  disabled selected >Student Class</option>
                                                 <option value="six">Six</option>
                                                 <option value="seven">Seven</option>
@@ -153,22 +154,21 @@
                                                 <option value="nine">Nine</option>
                                                 <option value="ten">Ten</option>
                                             </select>
-                                            @error('stu_class')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->has('stu_class') ? $errors->first('stu_class') : ' '  }}</strong>
-                                                </span>
-                                            @enderror 
+                                           
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="stu_image" class="col-sm-4 col-form-label text-right">Student Image</label>
-                                        <div class="col-sm-8">
-                                            <input type="file" value="{{ old('stu_image') }}" name="stu_image" class="form-control @error('stu_image') is-invalid @enderror" id="name" placeholder="Enter Stu Image">
+                                        <div class="col-sm-4">
+                                            <input type="file" value="{{ old('stu_image') }}" name="stu_image" class="form-control " id="name" placeholder="Enter Stu Image">
                                             @error('stu_image')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->has('stu_image') ? $errors->first('stu_image') : ' '  }}</strong>
                                                 </span>
                                             @enderror                                          
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <img src="{{asset($student->stu_image)}}" width='80px'; height="60px">                                                                                    
                                         </div>
                                     </div>
                                 </div>
@@ -185,6 +185,9 @@
             </div>
         </div>
     </div>
+    <script>
+        document.forms['editCategoryForm'].elements['stu_class'].value = '{!! $student->stu_class !!}';
+    </script>
     <script>
         function checkPasswordMatch() {
         var pwd = $("#password").val();
@@ -203,25 +206,5 @@
             password.setAttribute('type', type);
             $("#togglePassword").toggleClass("fa-eye");
         });
-    </script>
-    <script>
-        var email           =   document.getElementById('email');
-        email.onblur        =   function (){
-            var email       =   document.getElementById('email').value;
-            var xmlHttp     =   new XMLHttpRequest();
-            var serverPage  =   "http://127.0.0.1:8000/addStudent/email-check/"+email;
-            xmlHttp.open('GET', serverPage);
-            xmlHttp.onreadystatechange  =   function (){
-                if (xmlHttp.readyState == 4 && xmlHttp.status  ==  200){
-                    document.getElementById('res').innerHTML   =   xmlHttp.responseText;
-                    if (xmlHttp.responseText == 'This Email Already exist.Try new email'){
-                        document.getElementById('regBtn').disabled  =    true;
-                    }else {
-                        document.getElementById('regBtn').disabled  =    false;
-                    }
-                }
-            }
-            xmlHttp.send(null);
-        }
     </script>
 @endsection

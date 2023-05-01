@@ -19,6 +19,21 @@
     <!-- datatble -->
     <script src="{{asset('admin/assets/plugins/data-tables/jquery.datatables.min.js')}}">
     <script src="{{asset('admin/assets/plugins/data-tables/datatables.bootstrap4.min.js')}}">
+    /*bootbox*/
+    <script src="{{asset('admin/assets/plugins/bootbox/bootbox.min.js')}}">
+    // invice
+    <script src="{{asset('admin/assets/plugins/invoice/js/invoice.js')}}"></script>
+    <script>
+        $(document).on("click","#delete",function(e){
+            e.prventDefault();
+            var link = $(this).attr("href");
+            bootbox.confirm("Are Yout Want To Delete This !!",function(confrimed){
+                if(confirmed){
+                    windwo.location.href= link;
+                };
+            });   
+        });
+    </script>
     <script>
         jQuery(document).ready(function() {
             jQuery('#hoverable-data-table').DataTable({
