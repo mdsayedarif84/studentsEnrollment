@@ -9,8 +9,6 @@ use DB;
 use App\Models\AddStudent;
 use Intervention\Image\Facades\Image;
 
-
-
 class AddstudentController extends Controller
 {
    public function addStudent(){

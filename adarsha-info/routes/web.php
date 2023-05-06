@@ -15,6 +15,7 @@ use App\Http\Controllers\Course\SevenController;
 use App\Http\Controllers\Course\EightController;
 use App\Http\Controllers\Course\NineController;
 use App\Http\Controllers\Course\TenController;
+use App\Http\Controllers\Pdf\PdfController;
 //Teacher
 use App\Http\Controllers\Teacher\TeacherController;
 
@@ -47,11 +48,24 @@ Route::get('/tutionfee', [TutionFeeController::class, 'tutionfee'])->name('tutio
 Route::get('/result', [ResultController::class, 'result'])->name('result');
 //Course
 Route::get('/six', [SixController::class, 'six'])->name('six');
+Route::get('/view-student/{id}', [SixController::class, 'sixStudnetView'])->name('view-student');
+
 Route::get('/seven', [SevenController::class, 'seven'])->name('seven');
+Route::get('/view-student/{id}', [SevenController::class, 'sevenStudnetView'])->name('view-student');
+
 Route::get('/eight', [EightController::class, 'eight'])->name('eight');
+Route::get('/view-student/{id}', [EightController::class, 'eightStudnetView'])->name('view-student');
+
 Route::get('/nine', [NineController::class, 'nine'])->name('nine');
+Route::get('/view-student/{id}', [NineController::class, 'nineStudnetView'])->name('view-student');
+
 Route::get('/ten', [TenController::class, 'ten'])->name('ten');
+Route::get('/view-student/{id}', [TenController::class, 'tenStudnetView'])->name('view-student');
+Route::get('/pdf/{id}', [PdfController::class, 'pdfDownload'])->name('pdf-download');
 //Teachers
+Route::get('/addTeacher', [TeacherController::class, 'addTeacher'])->name('add-teacher');
+Route::post('/saveTeacher', [TeacherController::class, 'sotreData'])->name('save-teacher');
+
 Route::get('/allTeacher', [TeacherController::class, 'allTeacher'])->name('all-teacher');
 
 

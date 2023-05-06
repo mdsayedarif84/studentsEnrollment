@@ -6,8 +6,6 @@
   
 <html>
 	<head>
-		<meta charset="utf-8">
-		<title>Invoice</title>
     <style>
          /* reset */
 
@@ -162,68 +160,51 @@
     </style>
 	</head>
 	<body>
-		<h1 class="text-danger">Adarsha High School-107269</h1>
-		<p class="text-danger text-center">Sadar,Noakhali. ESTD-1974</p>
-	</br>
-		<header>
-			<h1>View Student Information</h1>
-			<div class="text-center">
-				<img src="{{asset($student->stu_image)}}" width='100px'; height="80px" alt="not showing" style="border-radius:50%;">
-			</div>
-            <table class="meta2">
-				<tr class="text-bold">
-					<th>Student Name #</th>
-					<td>{{$student->stu_name}}</td>
-				</tr>
-				<tr>
-					<th> Student Email #</th>
-					<td>{{$student->stu_email}}</td>
-				</tr>
-				<tr>
-					<th>Student Address #</span></th>
-					<td>{{$student->address}}</td>
-				</tr>
-			</table>
+        <header>
+			<h1>Invoice</h1>
+			<address contenteditable>
+				<p>Jonathan Neal</p>
+				<p>101 E. Chapman Ave<br>Orange, CA 92866</p>
+				<p>(800) 555-1234</p>
+			</address>
+			<span><img alt="" src="http://www.jonathantneal.com/examples/invoice/logo.png"><input type="file" accept="image/*"></span>
 		</header>
 		<article>
 			<h1>Recipient</h1>
 			<address contenteditable>
-				<p class="text-info">Adarsha Student Information</p>
+				<p>Some Company<br>c/o Some Guy</p>
 			</address>
 			<table class="meta">
 				<tr>
-					<th>Student Roll #</th>
-					<td>{{$student->stu_roll}}</td>
+					<th><span contenteditable>Invoice #</span></th>
+					<td><span contenteditable>101138</span></td>
 				</tr>
 				<tr>
-					<th>Student Class #</th>
-					<td>{{$student->stu_class}}</td>
+					<th><span contenteditable>Date</span></th>
+					<td><span contenteditable>January 1, 2012</span></td>
 				</tr>
 				<tr>
-					<th>Admission Date #</th>
-					<td>{{$student->admission_year}}</td>
-				</tr>
-				<tr>
-					<th>Phone Number #</th>
-					<td>{{$student->stu_phone}}</td>
+					<th><span contenteditable>Amount Due</span></th>
+					<td><span id="prefix" contenteditable>$</span><span>600.00</span></td>
 				</tr>
 			</table>
 			<table class="inventory">
 				<thead>
 					<tr>
-						<th>Father Name #</th>
-						<th>Mohter Name #</th>
-						<th>Created At #</th>
-						<th>Updated At #</th>
+						<th><span contenteditable>Item</span></th>
+						<th><span contenteditable>Description</span></th>
+						<th><span contenteditable>Rate</span></th>
+						<th><span contenteditable>Quantity</span></th>
+						<th><span contenteditable>Price</span></th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td><a class="cut">-</a>{{$student->father_name}}</td>
-						<td>{{$student->mother_name}}</td>
-						
-						<td>{{$student->created_at}}</td>
-						<td>{{$student->updated_at}}</td>
+						<td><a class="cut">-</a><span contenteditable>Front End Consultation</span></td>
+						<td><span contenteditable>Experience Review</span></td>
+						<td><span data-prefix>$</span><span contenteditable>150.00</span></td>
+						<td><span contenteditable>4</span></td>
+						<td><span data-prefix>$</span><span>600.00</span></td>
 					</tr>
 				</tbody>
 			</table>
@@ -244,9 +225,9 @@
 			</table>
 		</article>
 		<aside>
-			<h1 class="text-danger"><span contenteditable>Adarsha High School</span></h1>
+			<h1><span contenteditable>Additional Notes</span></h1>
 			<div contenteditable>
-				<p class="text-center">This Software made by "MD. Sayed Arif"</p>
+				<p>A finance charge of 1.5% will be made on unpaid balances after 30 days.</p>
 			</div>
 		</aside>
 	</body>

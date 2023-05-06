@@ -120,6 +120,11 @@
                   <ul class="collapse " id="tables" data-parent="#sidebar-menu">
                     <div class="sub-menu">
                       <li class="">
+                        <a class="sidenav-item-link" href="{{route('add-teacher')}}">
+                          <span class="nav-text">Add Teacher</span>
+                        </a>
+                      </li>
+                      <li class="">
                         <a class="sidenav-item-link" href="{{route('all-teacher')}}">
                           <span class="nav-text">All Teacher</span>
                         </a>

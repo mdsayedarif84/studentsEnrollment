@@ -49,9 +49,18 @@
 										<img src="{{asset( $stuData->stu_image)}} " width='80px'; height="60px" alt="not showing" style="border-radius:50%;">
 									</td>
 									<td class="text-center">
-										<a href="{{route('view-student',['id'=>$stuData->id])}}" class="btn btn-outline-primary btn-sm">View</a>
-										<a href="{{route('edit-student',['id'=>$stuData->id])}}" class="btn btn-outline-success btn-sm">Edit</a>
-										<a href="{{route('delete-student',['id'=>$stuData->id])}}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete this ??')" id="delete" title="delete">Delete</a>
+										<a href="{{route('view-student',['id'=>$stuData->id])}}" title="View" class="btn btn-outline-primary btn-sm">
+											<span class="mdi mdi-file-find"></span>
+										</a>
+										<a href="{{route('edit-student',['id'=>$stuData->id])}}" title="Edit" class="btn btn-outline-success btn-sm">
+											<span class="mdi mdi-playlist-edit"></span>
+										</a>
+										<a href="{{route('pdf-download',['id'=>$stuData->id])}}" class="btn btn-outline-success btn-sm" title="pdf">
+											<span class=" mdi mdi-cloud-download"></span>
+										</a>
+										<a href="{{route('delete-student',['id'=>$stuData->id])}}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete this ??')" id="delete" title="delete">
+											<span class="mdi mdi-trash-can"></span>
+										</a>
 									</td>
 								</tr>
 							@endforeach

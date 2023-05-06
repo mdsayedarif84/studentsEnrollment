@@ -16,4 +16,11 @@ class NineController extends Controller
         // return $eightStuDatas;
         return view('admin.course.nine',['nineStuDatas' => $nineStuDatas]);
     }
+    public function nineStudnetView($id)
+    {
+        $student = DB::table('add_students')
+            ->where('id',$id)
+            ->first();
+        return view('admin.student.view-student',['student'=>$student]); 
+    }
 }

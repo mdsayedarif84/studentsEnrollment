@@ -15,4 +15,11 @@ class TenController extends Controller
         // return $tenStuDatas;
         return view('admin.course.ten',['tenStuDatas' => $tenStuDatas]);
     }
+    public function tenStudnetView($id)
+    {
+        $student = DB::table('add_students')
+            ->where('id',$id)
+            ->first();
+        return view('admin.student.view-student',['student'=>$student]); 
+    } 
 }

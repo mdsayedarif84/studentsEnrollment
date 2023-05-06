@@ -15,5 +15,12 @@ class SixController extends Controller
         ->get();
         // return $sixStuDatas;
         return view('admin.course.six',['sixStuDatas' => $sixStuDatas]);
-    }  
+    }
+    public function sixStudnetView($id)
+    {
+        $student = DB::table('add_students')
+            ->where('id',$id)
+            ->first();
+        return view('admin.student.view-student',['student'=>$student]); 
+    }
 }
