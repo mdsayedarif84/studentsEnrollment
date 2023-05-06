@@ -2,11 +2,22 @@
 @section('title')
     Teacher
 @endsection
+@php 
+	function convert_department($value){
+		$values=[
+			1=>'Scicence',
+			2=>'Business Studies',
+			3=>'Humanites',
+			4=>'General',
+		];
+		return $values[$value];
+	}
+@endphp
 @section('body')
 <div class="breadcrumb-wrapper">
 	    <div class="card-header">
             <h4 class="text-danger text-bold"> All Teacher
-                <a href="{{route('add-student')}}" class="btn btn-danger btn-sm float-right">
+                <a href="{{route('add-teacher')}}" class="btn btn-danger btn-sm float-right">
                     <span class="mdi-hand-pointing-right"> </span>Add Teacher
                 </a>
             </h4>
@@ -43,7 +54,7 @@
 									<td class="text-center">{{ $teacherData->teacher_name }}</td>
 									<td class="text-center">{{ $teacherData->designation }}</td>
 									<td class="text-center">{{ $teacherData->teacher_email }}</td>
-									<td class="text-center">{{ $teacherData->department }}</td>
+									<td class="text-center">{{ convert_department($teacherData->department) }}</td>
 									<td class="text-center">{{ $teacherData->address }}</td>
 									<td class="text-center">{{ $teacherData->teacher_phone }}</td>
 									<td class="text-center">{{ $teacherData->joining_date }}</td>
@@ -51,10 +62,7 @@
 										<img src="{{asset( $teacherData->teacher_image)}} " width='80px'; height="60px" alt="not showing" style="border-radius:50%;">
 									</td>
 									<td class="text-center">
-										<a href="{{route('view-student',['id'=>$teacherData->id])}}" title="View" class="btn btn-outline-primary btn-sm">
-											<span class="mdi mdi-file-find"></span>
-										</a>
-										<a href="{{route('edit-student',['id'=>$teacherData->id])}}" title="Edit" class="btn btn-outline-success btn-sm">
+										<a href="{{route('edit-teacher',['id'=>$teacherData->id])}}" title="Edit" class="btn btn-outline-success btn-sm">
 											<span class="mdi mdi-playlist-edit"></span>
 										</a>
 										<a href="{{route('pdf-download',['id'=>$teacherData->id])}}" class="btn btn-outline-success btn-sm" title="pdf">

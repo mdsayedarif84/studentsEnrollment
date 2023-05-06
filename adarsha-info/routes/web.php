@@ -67,6 +67,8 @@ Route::get('/addTeacher', [TeacherController::class, 'addTeacher'])->name('add-t
 Route::post('/saveTeacher', [TeacherController::class, 'sotreData'])->name('save-teacher');
 
 Route::get('/allTeacher', [TeacherController::class, 'allTeacher'])->name('all-teacher');
+Route::get('/editTeacher/{id}', [TeacherController::class, 'editTeacher'])->name('edit-teacher');
+Route::post('/updateTeacher', [TeacherController::class, 'teacherFinalUpdate'])->name('update-teacher');
 
 
 

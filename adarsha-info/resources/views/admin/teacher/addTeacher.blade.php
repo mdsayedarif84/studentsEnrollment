@@ -14,7 +14,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="text-danger text-bold"> Add Teacher
-                                <a href="{{route('all-student')}}" class="btn btn-danger btn-sm float-right">
+                                <a href="{{route('all-teacher')}}" class="btn btn-danger btn-sm float-right">
                                     <span class="mdi-hand-pointing-right"> </span>All Teacher</a>
                             </h4>
                         </div>

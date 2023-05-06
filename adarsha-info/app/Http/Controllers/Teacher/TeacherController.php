@@ -38,8 +38,7 @@ class TeacherController extends Controller
             ]
         );
     }
-    protected function teacherImageUpload($request)
-    {
+    protected function teacherImageUpload($request){
         $teacherImage = $request->file('teacher_image');
         $filetype = $teacherImage->getClientOriginalExtension();
         $imageName = $request->teacher_name.'.'.$filetype;
@@ -48,8 +47,7 @@ class TeacherController extends Controller
         Image::make($teacherImage)->resize(300,300)->save($imageUrl);
         return $imageUrl;
     }
-    public function saveTeacherInfo($request, $imageUrl)
-    {
+    public function saveTeacherInfo($request, $imageUrl){
         $teacher = new AddTeacher();
         $teacher->teacher_name = $request->teacher_name;
         $teacher->teacher_email = $request->teacher_email;
@@ -61,17 +59,46 @@ class TeacherController extends Controller
         $teacher->joining_date = $request->joining_date;
         $teacher->save();
     }
-    public function sotreData(Request $request)
-    {
+    public function sotreData(Request $request){
         $this->DataValidation($request);
         $imageUrl = $this->teacherImageUpload($request);
         $this->saveTeacherInfo($request, $imageUrl);
         return redirect('/addTeacher')->with('message', 'Teacher Info Save Successfully');
     }
-    public function allTeacher()
-    {
+    public function allTeacher(){
         $teacherDatas   = DB::table('add_teachers')->get();
         //return $teacherDatas;
         return view('admin.teacher.allTeacher', ['teacherDatas' => $teacherDatas]);
+    }
+    public function editTeacher($id){
+        $teacher = DB::table('add_teachers')
+            ->where('id',$id)
+            ->first();
+        return view('admin.teacher.editTeacher',['teacher'=>$teacher]); 
+    }
+    public function updateTeacherBsicInfo($teacher,$request,$imageUrl = null){
+        $teacher->teacher_name  = $request->teacher_name;
+        $teacher->teacher_email = $request->teacher_email;
+        $teacher->department    = $request->department;
+        $teacher->designation   = $request->designation;
+        $teacher->address       = $request->address;
+        $teacher->teacher_phone = $request->teacher_phone;
+        $teacher->joining_date  = $request->joining_date;
+        if($imageUrl){
+            $teacher->teacher_image = $imageUrl;
+        }
+        $teacher->save();
+    }
+    public function teacherFinalUpdate(Request $request){
+        $teacherImage = $request->file('teacher_image');
+        $teacher   =   AddTeacher::find($request->teacher_id);
+        if ($teacherImage){
+            unlink($teacher->teacher_image);
+            $imageUrl = $this->teacherImageUpload($request);
+            $this->updateTeacherBsicInfo($teacher,$request, $imageUrl);
+        } else {
+            $this->updateTeacherBsicInfo($teacher,$request);
+        }
+        return redirect('/allTeacher')->with('message', 'Teacher Info Update Successfully');
     }
 }

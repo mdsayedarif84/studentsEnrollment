@@ -14,18 +14,19 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="text-danger text-bold"> Add Teacher
-                                <a href="{{route('all-student')}}" class="btn btn-danger btn-sm float-right">
+                                <a href="{{route('all-teacher')}}" class="btn btn-danger btn-sm float-right">
                                     <span class="mdi-hand-pointing-right"> </span>All Teacher</a>
                             </h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{route('save-teacher')}}" method="POST" enctype="multipart/form-data"  class="form-horizontal" >
+                            <form action="{{route('update-teacher')}}" method="POST" id="editTeacherForm" enctype="multipart/form-data"  class="form-horizontal" >
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group row">
                                         <label for="teacher_name" class="col-sm-4 col-form-label text-right">Teacher Name</label>
                                         <div class="col-sm-8">
-                                            <input type="text" name="teacher_name" value="{{ old('teacher_name') }}" class="form-control @error('teacher_name') is-invalid @enderror" id="teacher_name" placeholder="Enter Teacher Name">
+                                            <input type="text" name="teacher_name" value="{{ $teacher->teacher_name }}" class="form-control @error('teacher_name') is-invalid @enderror" id="teacher_name">
+                                            <input type="hidden" name="teacher_id" value="{{ $teacher->id }}" class="form-control @error('teacher_id') is-invalid @enderror" id="teacher_id">
                                             @error('teacher_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->has('teacher_name') ? $errors->first('teacher_name') : ' '  }}</strong>
@@ -37,7 +38,7 @@
                                     <div class="form-group row">
                                         <label for="teacher_email" class="col-sm-4 col-form-label text-right">Teacher Email</label>
                                         <div class="col-sm-8">
-                                            <input id="teacher_email" type="email" name="teacher_email" value="{{ old('teacher_email') }}" class="form-control @error('teacher_email') is-invalid @enderror"  placeholder="Enter Teacher Email">
+                                            <input id="teacher_email" type="email" name="teacher_email" value="{{ $teacher->teacher_email }}" class="form-control @error('teacher_email') is-invalid @enderror"  ">
                                             <span class="text-danger" id="res"></span>
                                             @error('teacher_email')
                                                 <span class="invalid-feedback" role="alert">
@@ -50,7 +51,7 @@
                                     <div class="form-group row">
                                         <label for="joining_date" class="col-sm-4 col-form-label text-right">Joining Date</label>
                                         <div class="col-sm-8">
-                                            <input type="date" value="{{ old('joining_date') }}" name="joining_date" class="form-control @error('joining_date') is-invalid @enderror"  placeholder="Enter Joining Date">
+                                            <input type="date" value="{{ $teacher->joining_date }}" name="joining_date" class="form-control @error('joining_date') is-invalid @enderror" >
                                             @error('joining_date')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->has('joining_date') ? $errors->first('joining_date') : ' '  }}</strong>
@@ -61,7 +62,7 @@
                                     <div class="form-group row">
                                         <label for="address" class="col-sm-4 col-form-label text-right">Address</label>
                                         <div class="col-sm-8">
-                                            <input type="text" value="{{ old('address') }}" name="address" class="form-control @error('address') is-invalid @enderror" id="name" placeholder="Enter Address">
+                                            <input type="text" value="{{ $teacher->address }}" name="address" class="form-control @error('address') is-invalid @enderror" id="name" >
                                             @error('address')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->has('address') ? $errors->first('address') : ' '  }}</strong>
@@ -72,7 +73,7 @@
                                     <div class="form-group row">
                                         <label for="teacher_phone" class="col-sm-4 col-form-label text-right">Teacher Phone</label>
                                         <div class="col-sm-8">
-                                            <input type="number" value="{{ old('teacher_phone') }}" name="teacher_phone" class="form-control @error('teacher_phone') is-invalid @enderror" id="name" placeholder="Enter teacher Phone">
+                                            <input type="number" value="{{ $teacher->teacher_phone }}" name="teacher_phone" class="form-control @error('teacher_phone') is-invalid @enderror" id="name">
                                             @error('teacher_phone')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->has('teacher_phone') ? $errors->first('teacher_phone') : ' '  }}</strong>
@@ -100,7 +101,7 @@
                                     <div class="form-group row">
                                         <label for="designation" class="col-sm-4 col-form-label text-right">Designation</label>
                                         <div class="col-sm-8">
-                                            <input type="text" value="{{ old('designation') }}" name="designation" class="form-control @error('designation') is-invalid @enderror" id="name" placeholder="Enter designation">
+                                            <input type="text" value="{{ $teacher->designation }}" name="designation" class="form-control @error('designation') is-invalid @enderror" id="name">
                                             @error('designation')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->has('designation') ? $errors->first('designation') : ' '  }}</strong>
@@ -110,7 +111,7 @@
                                     </div>
                                     <div class="form-group row">
                                         <label for="teacher_image" class="col-sm-4 col-form-label text-right">Teacher Image</label>
-                                        <div class="col-sm-8">
+                                        <div class="col-sm-4">
                                             <input type="file" value="{{ old('teacher_image') }}" name="teacher_image" class="form-control @error('teacher_image') is-invalid @enderror" id="name" >
                                             @error('teacher_image')
                                                 <span class="invalid-feedback" role="alert">
@@ -118,11 +119,14 @@
                                                 </span>
                                             @enderror                                          
                                         </div>
+                                        <div class="col-sm-4">
+                                            <img src="{{asset($teacher->teacher_image)}}" width='80px'; height="60px">                                                                                    
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
-                                    <button type="submit" :disabled="form.busy" class="btn btn-outline-success offset-sm-4">Save Data</button>
+                                    <button type="submit" :disabled="form.busy" class="btn btn-outline-success offset-sm-4">Update Data</button>
                                     <button type="reset" class="btn btn-outline-danger ">Reset</button>
                                 </div>
                                 <!-- /.card-footer -->
@@ -133,5 +137,7 @@
             </div>
         </div>
     </div>
-    
+    <script>
+        document.forms['editTeacherForm'].elements['department'].value = '{!! $teacher->department !!}';
+    </script>
 @endsection
