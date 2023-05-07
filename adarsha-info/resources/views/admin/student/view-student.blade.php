@@ -186,7 +186,6 @@
 			</table>
 		</header>
 		<article>
-			<h1>Recipient</h1>
 			<address contenteditable>
 				<p class="text-info">Adarsha Student Information</p>
 			</address>

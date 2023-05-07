@@ -1,15 +1,8 @@
-@extends('admin.dashboard')
-@section('title')
-    ViewStudent
-@endsection
-@section('body')
-  
+ 
 <html>
 	<head>
     <style>
          /* reset */
-
-*
         {
             border: 0;
             box-sizing: content-box;
@@ -28,7 +21,7 @@
 
         /* content editable */
 
-        *[contenteditable] { border-radius: 0.25em; min-width: 1em; outline: 0; }
+        *[contenteditable] { border-radius: 0.40em; min-width: 1em; outline: 0; }
 
         *[contenteditable] { cursor: pointer; }
 
@@ -54,7 +47,7 @@
         html { font: 16px/1 'Open Sans', sans-serif; overflow: auto; padding: 0.5in; }
         html { background: #999; cursor: default; }
 
-        body { box-sizing: border-box; height: 11in; margin: 0 auto; overflow: hidden; padding: 0.5in; width:100%; }
+        body { box-sizing: border-box; height: 11in; margin: 0 auto; overflow: hidden; padding: 3px; width:8.1in; }
         body { background: #FFF; border-radius: 1px; box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5); }
 
         /* header */
@@ -160,51 +153,68 @@
     </style>
 	</head>
 	<body>
+		<h1 style="color:red;">Adarsha High School-107269</h1>
+		<p style="color:red; text-align:center">Sadar,Noakhali. ESTD-1974</p>
+		</br>
         <header>
-			<h1>Invoice</h1>
-			<address contenteditable>
-				<p>Jonathan Neal</p>
-				<p>101 E. Chapman Ave<br>Orange, CA 92866</p>
-				<p>(800) 555-1234</p>
-			</address>
-			<span><img alt="" src="http://www.jonathantneal.com/examples/invoice/logo.png"><input type="file" accept="image/*"></span>
+			<h1>View Student Information</h1>
+			<div class="text-center">
+				<img src="{{asset($student->stu_image)}}" width='100px'; height="80px" alt="not showing" style="border-radius:50%;">
+			</div>
+            <table class="meta2">
+				<tr class="text-bold">
+					<th>Student Name #</th>
+					<td>{{$student->stu_name}}</td>
+				</tr>
+				<tr>
+					<th> Student Email #</th>
+					<td>{{$student->stu_email}}</td>
+				</tr>
+				<tr>
+					<th>Student Address #</span></th>
+					<td>{{$student->address}}</td>
+				</tr>
+			</table>
+		</header>
 		</header>
 		<article>
-			<h1>Recipient</h1>
 			<address contenteditable>
-				<p>Some Company<br>c/o Some Guy</p>
+				<p class="text-info">Adarsha Student Information</p>
 			</address>
 			<table class="meta">
 				<tr>
-					<th><span contenteditable>Invoice #</span></th>
-					<td><span contenteditable>101138</span></td>
+					<th>Student Roll #</th>
+					<td>{{$student->stu_roll}}</td>
 				</tr>
 				<tr>
-					<th><span contenteditable>Date</span></th>
-					<td><span contenteditable>January 1, 2012</span></td>
+					<th>Student Class #</th>
+					<td>{{$student->stu_class}}</td>
 				</tr>
 				<tr>
-					<th><span contenteditable>Amount Due</span></th>
-					<td><span id="prefix" contenteditable>$</span><span>600.00</span></td>
+					<th>Admission Date #</th>
+					<td>{{$student->admission_year}}</td>
+				</tr>
+				<tr>
+					<th>Phone Number #</th>
+					<td>{{$student->stu_phone}}</td>
 				</tr>
 			</table>
 			<table class="inventory">
 				<thead>
 					<tr>
-						<th><span contenteditable>Item</span></th>
-						<th><span contenteditable>Description</span></th>
-						<th><span contenteditable>Rate</span></th>
-						<th><span contenteditable>Quantity</span></th>
-						<th><span contenteditable>Price</span></th>
+						<th>Father Name #</th>
+						<th>Mohter Name #</th>
+						<th>Created At #</th>
+						<th>Updated At #</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td><a class="cut">-</a><span contenteditable>Front End Consultation</span></td>
-						<td><span contenteditable>Experience Review</span></td>
-						<td><span data-prefix>$</span><span contenteditable>150.00</span></td>
-						<td><span contenteditable>4</span></td>
-						<td><span data-prefix>$</span><span>600.00</span></td>
+						<td><a class="cut">-</a>{{$student->father_name}}</td>
+						<td>{{$student->mother_name}}</td>
+						
+						<td>{{$student->created_at}}</td>
+						<td>{{$student->updated_at}}</td>
 					</tr>
 				</tbody>
 			</table>
@@ -225,9 +235,9 @@
 			</table>
 		</article>
 		<aside>
-			<h1><span contenteditable>Additional Notes</span></h1>
+			<h1><span contenteditable>Adarsha High School</span></h1>
 			<div contenteditable>
-				<p>A finance charge of 1.5% will be made on unpaid balances after 30 days.</p>
+				<p style="text-align:center">This Website is Developped By @MD. Sayed Arif</p>
 			</div>
 		</aside>
 	</body>
@@ -473,4 +483,3 @@ function onContentLoad() {
 window.addEventListener && document.addEventListener('DOMContentLoaded', onContentLoad);
 
 </script>
-@endsection

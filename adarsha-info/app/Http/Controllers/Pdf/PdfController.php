@@ -4,12 +4,16 @@ namespace App\Http\Controllers\Pdf;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Barryvdh\DomPDF\Facade\Pdf;
-
+use Pdf;
+use DB;
 class PdfController extends Controller
 {
     public function pdfDownload($id){
-        $pdf = Pdf::loadView('admin.pdf.pdf-download');
+        $student = DB::table('add_students')
+            ->where('id',$id)
+            ->first();
+        $pdf = PDF::loadView('admin.pdf.pdf-download',
+            ['student'=>$student])->setOptions(['defaultFont' => 'sans-serif']);
         return $pdf->stream('student.pdf');
     }
 }
