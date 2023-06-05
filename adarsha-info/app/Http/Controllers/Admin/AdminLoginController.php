@@ -38,10 +38,7 @@ class AdminLoginController extends Controller
         Session::put('id',null);
         return Redirect::to('/backend');
     }
-    public function dashboard(){
-        return view('admin.body.main-body');
-
-    }
+    
     public function myProfile(){
         return view('admin.headerDopMenu.myProfile');
 

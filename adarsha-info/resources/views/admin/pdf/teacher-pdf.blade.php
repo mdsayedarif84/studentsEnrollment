@@ -1,4 +1,14 @@
- 
+@php 
+	function convert_department($value){
+		$values=[
+			1=>'Scicence',
+			2=>'Business Studies',
+			3=>'Humanites',
+			4=>'General',
+		];
+		return $values[$value];
+	}
+@endphp
 <html>
 	<head>
     <style>
@@ -157,64 +167,61 @@
 		<p style="color:red; text-align:center">Sadar,Noakhali. ESTD-1972</p>
 		</br>
         <header>
-			<h1>View Student Information</h1>
+			<h1>View Teacher Information</h1>
 			<div class="text-center">
-				<img src="{{asset($student->stu_image)}}" width='100px'; height="80px" alt="not showing" style="border-radius:50%;">
+				<img src="{{asset($teacher->teacher_image)}}" width='100px'; height="80px" alt="not showing" style="border-radius:50%;">
 			</div>
             <table class="meta2">
 				<tr class="text-bold">
-					<th>Student Name #</th>
-					<td>{{$student->stu_name}}</td>
+					<th>Teacher Name #</th>
+					<td>{{$teacher->teacher_name}}</td>
 				</tr>
 				<tr>
-					<th> Student Email #</th>
-					<td>{{$student->stu_email}}</td>
+					<th> Teacher Email #</th>
+					<td>{{$teacher->teacher_email}}</td>
 				</tr>
 				<tr>
-					<th>Student Address #</span></th>
-					<td>{{$student->address}}</td>
+					<th>Teacher Address #</span></th>
+					<td>{{$teacher->designation}}</td>
 				</tr>
 			</table>
 		</header>
 		</header>
 		<article>
 			<address contenteditable>
-				<p class="text-info">Adarsha Student Information</p>
+				<p class="text-info">Adarsha Teacher Information</p>
 			</address>
 			<table class="meta">
 				<tr>
-					<th>Student Roll #</th>
-					<td>{{$student->stu_roll}}</td>
+					<th>Deapartment #</th>
+					<td>{{convert_department($teacher->department)}}</td>
 				</tr>
 				<tr>
-					<th>Student Class #</th>
-					<td>{{$student->stu_class}}</td>
-				</tr>
-				<tr>
-					<th>Admission Date #</th>
-					<td>{{$student->admission_year}}</td>
+					<th>Joning Date #</th>
+					<td>{{$teacher->joining_date}}</td>
 				</tr>
 				<tr>
 					<th>Phone Number #</th>
-					<td>{{$student->stu_phone}}</td>
+					<td>{{$teacher->teacher_phone}}</td>
+				</tr>
+				<tr>
+					<th>Address #</th>
+					<td>{{$teacher->address}}</td>
 				</tr>
 			</table>
 			<table class="inventory">
 				<thead>
-					<tr>
-						<th>Father Name #</th>
-						<th>Mohter Name #</th>
+					<tr  class="text-center">
+						<th>ID #</th>
 						<th>Created At #</th>
 						<th>Updated At #</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td><a class="cut">-</a>{{$student->father_name}}</td>
-						<td>{{$student->mother_name}}</td>
-						
-						<td>{{$student->created_at}}</td>
-						<td>{{$student->updated_at}}</td>
+						<td><a class="cut">-</a>{{$teacher->id}}</td>
+						<td>{{$teacher->created_at}}</td>
+						<td>{{$teacher->updated_at}}</td>
 					</tr>
 				</tbody>
 			</table>

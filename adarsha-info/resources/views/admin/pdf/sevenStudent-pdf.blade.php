@@ -1,4 +1,4 @@
- 
+
 <html>
 	<head>
     <style>
@@ -157,22 +157,22 @@
 		<p style="color:red; text-align:center">Sadar,Noakhali. ESTD-1972</p>
 		</br>
         <header>
-			<h1>View Student Information</h1>
+			<h1>View Seven Student Information</h1>
 			<div class="text-center">
-				<img src="{{asset($student->stu_image)}}" width='100px'; height="80px" alt="not showing" style="border-radius:50%;">
+				<img src="{{asset($sevenStudent->stu_image)}}" width='100px'; height="80px" alt="not showing" style="border-radius:50%;">
 			</div>
             <table class="meta2">
 				<tr class="text-bold">
 					<th>Student Name #</th>
-					<td>{{$student->stu_name}}</td>
+					<td>{{$sevenStudent->stu_name}}</td>
 				</tr>
 				<tr>
 					<th> Student Email #</th>
-					<td>{{$student->stu_email}}</td>
+					<td>{{$sevenStudent->stu_email}}</td>
 				</tr>
 				<tr>
 					<th>Student Address #</span></th>
-					<td>{{$student->address}}</td>
+					<td>{{$sevenStudent->address}}</td>
 				</tr>
 			</table>
 		</header>
@@ -184,19 +184,19 @@
 			<table class="meta">
 				<tr>
 					<th>Student Roll #</th>
-					<td>{{$student->stu_roll}}</td>
+					<td>{{$sevenStudent->stu_roll}}</td>
 				</tr>
 				<tr>
 					<th>Student Class #</th>
-					<td>{{$student->stu_class}}</td>
+					<td>{{$sevenStudent->stu_class}}</td>
 				</tr>
 				<tr>
 					<th>Admission Date #</th>
-					<td>{{$student->admission_year}}</td>
+					<td>{{$sevenStudent->admission_year}}</td>
 				</tr>
 				<tr>
 					<th>Phone Number #</th>
-					<td>{{$student->stu_phone}}</td>
+					<td>{{$sevenStudent->stu_phone}}</td>
 				</tr>
 			</table>
 			<table class="inventory">
@@ -210,11 +210,11 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td><a class="cut">-</a>{{$student->father_name}}</td>
-						<td>{{$student->mother_name}}</td>
+						<td><a class="cut">-</a>{{$sevenStudent->father_name}}</td>
+						<td>{{$sevenStudent->mother_name}}</td>
 						
-						<td>{{$student->created_at}}</td>
-						<td>{{$student->updated_at}}</td>
+						<td>{{$sevenStudent->created_at}}</td>
+						<td>{{$sevenStudent->updated_at}}</td>
 					</tr>
 				</tbody>
 			</table>
@@ -483,3 +483,16 @@ function onContentLoad() {
 window.addEventListener && document.addEventListener('DOMContentLoaded', onContentLoad);
 
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+

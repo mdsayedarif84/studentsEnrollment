@@ -5,55 +5,103 @@
 @section('body')
   <div class="content-wrapper">
           <!-- content -->
-          <div class="content">
-            <div class="row">
-              <div class="col-xl-3 col-sm-6">
-                <div class="card card-mini mb-4">
-                  <div class="card-body">
-                    <h2 class="mb-1">71,503</h2>
-                    <h3 class="text-danger">All Student</h3>
-                  <div class="chartjs-wrapper">
-                    <canvas id="barChart"></canvas>
-                  </div>
-                </div>
+    <div class="content">
+      <div class="row">
+        <div class="col-xl-3 col-sm-6">
+          <div class="card card-mini mb-4">
+            <div class="card-body">
+              <h2 class="mb-1">{{$total['allStudent']}}</h2>
+              <h3 class="text-danger">All Student</h3>
+              <div class="chartjs-wrapper">
+                <canvas id="barChart"></canvas>
               </div>
             </div>
-            <div class="col-xl-3 col-sm-6">
-              <div class="card card-mini  mb-4">
-                <div class="card-body">
-                  <h2 class="mb-1">9,503</h2>
-                  <h3 class="text-danger">All Teacher</h3>
-                  <div class="chartjs-wrapper">
-                    <canvas id="dual-line"></canvas>
-                  </div>
-                </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6">
+          <div class="card card-mini  mb-4">
+            <div class="card-body">
+              <h2 class="mb-1">{{$total['allTeacher']}}</h2>
+              <h3 class="text-danger">All Teacher</h3>
+              <div class="chartjs-wrapper">
+                <canvas id="dual-line"></canvas>
               </div>
             </div>
-            <div class="col-xl-3 col-sm-6">
-              <div class="card card-mini mb-4">
-                <div class="card-body">
-                  <h2 class="mb-1">71,503</h2>
-                  <h3 class="text-danger">Tution Fee</h3>
-                <div class="chartjs-wrapper">
-                  <canvas id="area-chart"></canvas>
-                </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6">
+          <div class="card card-mini mb-4">
+            <div class="card-body">
+              <h2 class="mb-1 ">71,503</h2>
+              <h3 class="text-danger ">Tution Fee</h3>
+              <div class="chartjs-wrapper">
+                <canvas id="area-chart"></canvas>
               </div>
             </div>
-                  </div>
-                  <div class="col-xl-3 col-sm-6">
-                    <div class="card card-mini mb-4">
-                      <div class="card-body">
-                        <h2 class="mb-1">9,503</h2>
-                        <h3 class="text-danger">Revenue</h3>
-                      <div class="chartjs-wrapper">
-                        <canvas id="line"></canvas>
-                      </div>
-                    </div>
-                  </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6">
+          <div class="card card-mini mb-4">
+            <div class="card-body">
+              <h2 class="mb-1">9,503</h2>
+              <h3 class="text-danger">Revenue</h3>
+              <div class="chartjs-wrapper">
+                <canvas id="line"></canvas>
               </div>
             </div>
-
-            <div class="row">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-sm-6">
+          <div class="card mb-1 bg-primary">
+            <div class="card-body">
+              <h4 class="text-white" >Total Six Student
+                <span class="mdi-hand-pointing-right float-right">{{$total['sixCount']}}</span>
+              </h4>
+            </div>
+          </div>
+          <div class="card  mb-1 bg-info">
+            <div class="card-body">
+                <h4 class="text-white" >Total Seven Student
+                  <span class="mdi-hand-pointing-right float-right">{{$total['sevenCount']}}</span>
+                </h4>
+              </div>
+            </div>
+          <div class="card mb-1 bg-warning">
+            <div class="card-body">
+              <h4 class="text-white" >Total Eight Student
+                <span class="mdi-hand-pointing-right float-right">{{$total['eightCount']}}</span>
+              </h4>
+            </div>
+          </div>
+          
+        </div>
+        <div class="col-xl-6 col-sm-6">
+          <div class="card mb-1 bg-success">
+            <div class="card-body">
+              <h4 class="text-white" >Total Nine Student
+                <span class="mdi-hand-pointing-right float-right">{{$total['nineCount']}}</span>
+              </h4>
+            </div>
+          </div>
+          <div class="card mb-1 bg-info">
+            <div class="card-body">
+              <h4 class="text-white" >Total Ten Student
+                <span class="mdi-hand-pointing-right float-right">{{$total['tenCount']}}</span>
+              </h4>
+            </div>
+          </div>
+          <div class="card mb-1 bg-secondary">
+            <div class="card-body">
+              <h4 class="text-white" >Total SSC Student
+                <span class="mdi-hand-pointing-right float-right">{{$total['sixCount']}}</span>
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
               <div class="col-xl-8 col-md-12">
                 
                               <!-- Sales Graph -->

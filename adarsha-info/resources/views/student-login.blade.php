@@ -32,18 +32,26 @@
                 </a>
               </div>
             </div>
-
+            <h4 class="text-center text-danger" id="msg">
+              @php
+                $message   = Session::get('message');
+                if($message){
+                  echo $message;
+                  Session::put('message',null); 
+                }
+              @endphp              
+            </h4>
             <div class="card-body p-5">
               <h4 class="text-dark mb-5">Sign In</h4>
-              
-              <form action="/index.html">
+              <form method="POST" action="{{route('student-dashboard')}}">
+                @csrf
                 <div class="row">
                   <div class="form-group col-md-12 mb-4">
-                    <input type="email" class="form-control input-lg" id="email" aria-describedby="emailHelp" placeholder="Username">
+                    <input name="stu_email" type="email" class="form-control input-lg" id="email" aria-describedby="emailHelp" placeholder="Username">
                   </div>
 
                   <div class="form-group col-md-12 ">
-                    <input type="password" class="form-control input-lg" id="password" placeholder="Password">
+                    <input name="password" type="password" class="form-control input-lg" id="password" placeholder="Password">
                   </div>
 
                   <div class="col-md-12">

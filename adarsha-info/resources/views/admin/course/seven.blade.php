@@ -48,6 +48,9 @@
                                     <td class="text-center">
                                     <a href="{{route('view-student',['id'=>$sevenStuData->id])}}" class="btn btn-outline-primary btn-sm">View</a>
                                         <button class="btn btn-outline-success btn-sm">Edit</button>
+                                    <a href="{{route('sevenStudent-pdf',['id'=>$sevenStuData->id])}}" class="btn btn-outline-success btn-sm" title="pdf">
+											<span class=" mdi mdi-cloud-download"></span>
+										7th</a>
                                         <button class="btn btn-outline-danger btn-sm">Delete</button>
                                     </td>
                                 </tr>

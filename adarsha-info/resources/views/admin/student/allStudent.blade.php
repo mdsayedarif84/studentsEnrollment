@@ -55,7 +55,7 @@
 										<a href="{{route('edit-student',['id'=>$stuData->id])}}" title="Edit" class="btn btn-outline-success btn-sm">
 											<span class="mdi mdi-playlist-edit"></span>
 										</a>
-										<a href="{{route('pdf-download',['id'=>$stuData->id])}}" class="btn btn-outline-success btn-sm" title="pdf">
+										<a href="{{route('student-pdf',['id'=>$stuData->id])}}" class="btn btn-outline-success btn-sm" title="pdf">
 											<span class=" mdi mdi-cloud-download"></span>
 										</a>
 										<a href="{{route('delete-student',['id'=>$stuData->id])}}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete this ??')" id="delete" title="delete">

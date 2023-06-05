@@ -47,33 +47,33 @@
 								</tr>
 							</thead>
 							<tbody>
-							@php($i=1)
-							@foreach($teacherDatas as $teacherData)
-								<tr >
-									<td class="details-control">{{ $i++ }}</td>
-									<td class="text-center">{{ $teacherData->teacher_name }}</td>
-									<td class="text-center">{{ $teacherData->designation }}</td>
-									<td class="text-center">{{ $teacherData->teacher_email }}</td>
-									<td class="text-center">{{ convert_department($teacherData->department) }}</td>
-									<td class="text-center">{{ $teacherData->address }}</td>
-									<td class="text-center">{{ $teacherData->teacher_phone }}</td>
-									<td class="text-center">{{ $teacherData->joining_date }}</td>
-									<td>
-										<img src="{{asset( $teacherData->teacher_image)}} " width='80px'; height="60px" alt="not showing" style="border-radius:50%;">
-									</td>
-									<td class="text-center">
-										<a href="{{route('edit-teacher',['id'=>$teacherData->id])}}" title="Edit" class="btn btn-outline-success btn-sm">
-											<span class="mdi mdi-playlist-edit"></span>
-										</a>
-										<a href="{{route('pdf-download',['id'=>$teacherData->id])}}" class="btn btn-outline-success btn-sm" title="pdf">
-											<span class=" mdi mdi-cloud-download"></span>
-										</a>
-										<a href="{{route('delete-student',['id'=>$teacherData->id])}}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete this ??')" id="delete" title="delete">
-											<span class="mdi mdi-trash-can"></span>
-										</a>
-									</td>
-								</tr>
-							@endforeach
+								@php($i=1)
+								@foreach($teacherDatas as $teacherData)
+									<tr >
+										<td class="details-control">{{ $i++ }}</td>
+										<td class="text-center">{{ $teacherData->teacher_name }}</td>
+										<td class="text-center">{{ $teacherData->designation }}</td>
+										<td class="text-center">{{ $teacherData->teacher_email }}</td>
+										<td class="text-center">{{ convert_department($teacherData->department) }}</td>
+										<td class="text-center">{{ $teacherData->address }}</td>
+										<td class="text-center">{{ $teacherData->teacher_phone }}</td>
+										<td class="text-center">{{ $teacherData->joining_date }}</td>
+										<td>
+											<img src="{{asset( $teacherData->teacher_image)}} " width='80px'; height="60px" alt="not showing" style="border-radius:50%;">
+										</td>
+										<td class="text-center">
+											<a href="{{route('edit-teacher',['id'=>$teacherData->id])}}" title="Edit" class="btn btn-outline-success btn-sm">
+												<span class="mdi mdi-playlist-edit"></span>
+											</a>
+											<a href="{{route('teacher-pdf',['id'=>$teacherData->id])}}" class="btn btn-outline-success btn-sm" title="pdf">
+												<span class=" mdi mdi-cloud-download"></span>
+											</a>
+											<a href="{{route('delete-student',['id'=>$teacherData->id])}}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete this ??')" id="delete" title="delete">
+												<span class="mdi mdi-trash-can"></span>
+											</a>
+										</td>
+									</tr>
+								@endforeach
 							</tbody>
 						</table>
 					</div>
