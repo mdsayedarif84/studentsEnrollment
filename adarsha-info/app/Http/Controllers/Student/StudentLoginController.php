@@ -19,9 +19,10 @@ class StudentLoginController extends Controller
         $email= $request->stu_email;
         $password= bcrypt($request->password);
         $student= DB::table('add_students')
-                ->where('stu_email',$email)
-                ->where('password',$password)
-                ->first();
+                ->where([
+                    'stu_email'=>$email,
+                    'password'=>$password
+                ])->first();
                 return $student;
                 if($student){
                     Session::put('studentData',$student);

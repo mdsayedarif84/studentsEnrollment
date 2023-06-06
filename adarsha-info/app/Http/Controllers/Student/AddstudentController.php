@@ -17,36 +17,36 @@ class AddstudentController extends Controller
    protected function DataValidation($request){
         $this->validate($request, 
             [
-                'stu_name' => 'required|min:3|max:50',
-                'stu_roll' => 'required|regex:/^[0-9]+$/',
+                'name' => 'required|min:3|max:50',
+                'roll' => 'required|regex:/^[0-9]+$/',
                 'father_name' => 'required|regex:/^[a-zA-Z\s]+$/',
                 'mother_name' => 'required|regex:/^[a-zA-Z\s]+$/',
-                'stu_email' => 'required|unique:add_students|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
+                'email' => 'required|unique:add_students|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
                 'password' => 'required||regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/|min:6|',
-                'stu_class' => 'required',
+                'class' => 'required',
                 'admission_year' => 'required',
                 'address' => 'required',
-                'stu_image' => 'required',
-                'stu_phone' => 'required|max:11',
+                'image' => 'required',
+                'phone' => 'required|max:11',
             ],
             [
-                'stu_name.required' => 'Your name must be required!',
-                'stu_roll.required' => 'Please Fill Up This Roll',
-                'stu_roll.regex' => 'Only Number Accepted',
-                'stu_email.regex' => 'You Missing dot After gmail,yahoo,hotmail',
-                'stu_phone.max' => 'Not more than 11 digit',
+                'name.required' => 'Your name must be required!',
+                'roll.required' => 'Please Fill Up This Roll',
+                'roll.regex' => 'Only Number Accepted',
+                'email.regex' => 'You Missing dot After gmail,yahoo,hotmail',
+                'phone.max' => 'Not more than 11 digit',
                 'father_name.regex' => 'Letter & Space only Accepted!',
                 'mother_name.regex' => 'Letter & Space only Accepted!',
-                'stu_email.required' => 'Please Give a valid Email!',
+                'email.required' => 'Please Give a valid Email!',
                 'password.regex' => 'Password must be minimum 6 characters with at least 1 upper case, 1 lower case, 1 numeric character and 1 special character.',
             ]
         );
     }
     protected function studentImageUpload($request)
     {
-        $studentImage = $request->file('stu_image');
+        $studentImage = $request->file('image');
         $filetype = $studentImage->getClientOriginalExtension();
-        $imageName = $request->stu_name.'.'.$filetype;
+        $imageName = $request->name.'.'.$filetype;
         $directory = 'stu_image/';
         $imageUrl = $directory.$imageName;
         Image::make($studentImage)->resize(300,300)->save($imageUrl);
@@ -55,15 +55,15 @@ class AddstudentController extends Controller
     public function saveStudentInfo($request, $imageUrl)
     {
         $student = new AddStudent();
-        $student->stu_name = $request->stu_name;
-        $student->stu_roll = $request->stu_roll;
+        $student->name = $request->name;
+        $student->roll = $requeroll;
         $student->father_name = $request->father_name;
         $student->mother_name = $request->mother_name;
-        $student->stu_email = $request->stu_email;
-        $student->stu_class = $request->stu_class;
+        $student->email = $request->email;
+        $student->class = $request->class;
         $student->stu_image = $imageUrl;
         $student->address = $request->address;
-        $student->stu_phone = $request->stu_phone;
+        $student->phone = $request->phone;
         $student->admission_year = $request->admission_year;
         $student->password = bcrypt($request->password);
         $student->save();
@@ -84,17 +84,17 @@ class AddstudentController extends Controller
         return view('admin.student.edit-student',['student'=>$student]); 
     }
     public function updateStudentBsicInfo($student,$request,$imageUrl = null){
-        $student->stu_name = $request->stu_name;
-        $student->stu_roll = $request->stu_roll;
+        $student->name = $request->name;
+        $student->roll = $request->roll;
         $student->father_name = $request->father_name;
         $student->mother_name = $request->mother_name;
-        $student->stu_email = $request->stu_email;
-        $student->stu_class = $request->stu_class;
+        $student->email = $request->email;
+        $student->class = $request->class;
         if ($imageUrl) {
-            $student->stu_image = $imageUrl;
+            $student->image = $imageUrl;
         }
         $student->address = $request->address;
-        $student->stu_phone = $request->stu_phone;
+        $student->phone = $request->phone;
         $student->admission_year = $request->admission_year;
         if ($request->password != '') {
             $student->password = bcrypt($request->password);

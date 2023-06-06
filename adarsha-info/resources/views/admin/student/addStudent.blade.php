@@ -34,23 +34,23 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group row">
-                                        <label for="stu_name" class="col-sm-4 col-form-label text-right">Student Name</label>
+                                        <label for="name" class="col-sm-4 col-form-label text-right">Student Name</label>
                                         <div class="col-sm-8">
-                                            <input type="text" name="stu_name" value="{{ old('stu_name') }}" class="form-control @error('stu_name') is-invalid @enderror" id="stu_name" placeholder="Enter stu_name">
-                                            @error('stu_name')
+                                            <input type="text" name="name" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Enter name">
+                                            @error('name')
                                                 <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->has('stu_name') ? $errors->first('stu_name') : ' '  }}</strong>
+                                                    <strong>{{ $errors->has('name') ? $errors->first('name') : ' '  }}</strong>
                                                 </span>
                                             @enderror                                          
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="stu_roll" class="col-sm-4 col-form-label text-right">Student Roll</label>
+                                        <label for="roll" class="col-sm-4 col-form-label text-right">Student Roll</label>
                                         <div class="col-sm-8">
-                                            <input type="number" name="stu_roll" value="{{ old('stu_roll') }}" class="form-control @error('stu_roll') is-invalid @enderror" id="name" placeholder="Enter stu_roll">
-                                            @error('stu_roll')
+                                            <input type="number" name="roll" value="{{ old('roll') }}" class="form-control @error('roll') is-invalid @enderror" id="name" placeholder="Enter roll">
+                                            @error('roll')
                                                 <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->has('stu_roll') ? $errors->first('stu_roll') : ' '  }}</strong>
+                                                    <strong>{{ $errors->has('roll') ? $errors->first('roll') : ' '  }}</strong>
                                                 </span>
                                             @enderror                                          
                                         </div>
@@ -78,13 +78,13 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="stu_email" class="col-sm-4 col-form-label text-right">Student Email</label>
+                                        <label for="email" class="col-sm-4 col-form-label text-right">Student Email</label>
                                         <div class="col-sm-8">
-                                            <input id="email" type="email" name="stu_email" value="{{ old('stu_email') }}" class="form-control @error('stu_email') is-invalid @enderror"  placeholder="Enter stu_email">
+                                            <input id="email" type="email" name="email" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror"  placeholder="Enter email">
                                             <span class="text-danger" id="res"></span>
-                                            @error('stu_email')
+                                            @error('email')
                                                 <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->has('stu_email') ? $errors->first('stu_email') : ' '  }}</strong>
+                                                    <strong>{{ $errors->has('email') ? $errors->first('email') : ' '  }}</strong>
                                                 </span>
                                             @enderror                                          
                                         </div>
@@ -132,20 +132,20 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="stu_phone" class="col-sm-4 col-form-label text-right">Student Phone</label>
+                                        <label for="phone" class="col-sm-4 col-form-label text-right">Student Phone</label>
                                         <div class="col-sm-8">
-                                            <input type="number" value="{{ old('stu_phone') }}" name="stu_phone" class="form-control @error('stu_phone') is-invalid @enderror" id="name" placeholder="Enter Stu Phone">
-                                            @error('stu_phone')
+                                            <input type="number" value="{{ old('phone') }}" name="phone" class="form-control @error('phone') is-invalid @enderror" id="name" placeholder="Enter Stu Phone">
+                                            @error('phone')
                                                 <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->has('stu_phone') ? $errors->first('stu_phone') : ' '  }}</strong>
+                                                    <strong>{{ $errors->has('phone') ? $errors->first('phone') : ' '  }}</strong>
                                                 </span>
                                             @enderror                                          
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="stu_class" class="col-sm-4 col-form-label text-right">Sudent Class</label>
+                                        <label for="class" class="col-sm-4 col-form-label text-right">Sudent Class</label>
                                         <div class="col-sm-8">
-                                            <select name="stu_class" class="form-select form-control @error('stu_class') is-invalid @enderror" >
+                                            <select name="class" class="form-select form-control @error('class') is-invalid @enderror" >
                                                 <option  disabled selected >Student Class</option>
                                                 <option value="six">Six</option>
                                                 <option value="seven">Seven</option>
@@ -153,20 +153,20 @@
                                                 <option value="nine">Nine</option>
                                                 <option value="ten">Ten</option>
                                             </select>
-                                            @error('stu_class')
+                                            @error('class')
                                                 <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->has('stu_class') ? $errors->first('stu_class') : ' '  }}</strong>
+                                                    <strong>{{ $errors->has('class') ? $errors->first('class') : ' '  }}</strong>
                                                 </span>
                                             @enderror 
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="stu_image" class="col-sm-4 col-form-label text-right">Student Image</label>
+                                        <label for="image" class="col-sm-4 col-form-label text-right">Student Image</label>
                                         <div class="col-sm-8">
-                                            <input type="file" value="{{ old('stu_image') }}" name="stu_image" class="form-control @error('stu_image') is-invalid @enderror" id="name" placeholder="Enter Stu Image">
-                                            @error('stu_image')
+                                            <input type="file" value="{{ old('image') }}" name="image" class="form-control @error('image') is-invalid @enderror" id="name" placeholder="Enter Stu Image">
+                                            @error('image')
                                                 <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->has('stu_image') ? $errors->first('stu_image') : ' '  }}</strong>
+                                                    <strong>{{ $errors->has('image') ? $errors->first('image') : ' '  }}</strong>
                                                 </span>
                                             @enderror                                          
                                         </div>

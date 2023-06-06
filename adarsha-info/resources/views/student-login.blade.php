@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Sleek Dashboard - Free Bootstrap 4 Admin Dashboard Template and UI Kit. It is very powerful bootstrap admin dashboard, which allows you to build products like admin panels, content management systems and CRMs etc.">
 
-    <title>studentEnrollment</title>
+    <title>Student</title>
 
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet" />
     <link href="https://cdn.materialdesignicons.com/4.4.95/css/materialdesignicons.min.css" rel="stylesheet" />
     @include('admin.links.css.css')
-  </head> 
+    
+  </head>
   <body class="" id="body">
     <div class="container d-flex align-items-center justify-content-center vh-100">
       <div class="row justify-content-center">
@@ -28,6 +29,7 @@
                       <path class="logo-fill-white" fill="#FFF" d="M11 4v25l8 4V0z" />
                     </g>
                   </svg>
+
                   <span class="brand-name">Student Login</span>
                 </a>
               </div>
@@ -40,20 +42,18 @@
                   Session::put('message',null); 
                 }
               @endphp              
-            </h4>
+            </h4>           
             <div class="card-body p-5">
               <h4 class="text-dark mb-5">Sign In</h4>
-              <form method="POST" action="{{route('student-dashboard')}}">
+              <form method="POST"  action="{{route('student-dashboard')}}">
                 @csrf
                 <div class="row">
                   <div class="form-group col-md-12 mb-4">
                     <input name="stu_email" type="email" class="form-control input-lg" id="email" aria-describedby="emailHelp" placeholder="Username">
                   </div>
-
                   <div class="form-group col-md-12 ">
-                    <input name="password" type="password" class="form-control input-lg" id="password" placeholder="Password">
+                    <input name="password" type="password" class="form-control input-lg" id="password" placeholder="Password" required>
                   </div>
-
                   <div class="col-md-12">
                     <div class="d-flex my-2 justify-content-between">
                       <div class="d-inline-block mr-3">
@@ -62,12 +62,9 @@
                           <div class="control-indicator"></div>
                         </label>
                       </div>
-
                       <p><a class="text-blue" href="#">Forgot Your Password?</a></p>
                     </div>
-
                     <button type="submit" class="btn btn-lg btn-primary btn-block mb-4">Sign In</button>
-
                     <p>Don't have an account yet ?
                       <a class="text-blue" href="sign-up.html">Sign Up</a>
                     </p>
@@ -79,5 +76,6 @@
         </div>
       </div>
     </div>
+    @include('admin.links.js.js')
   </body>
 </html>

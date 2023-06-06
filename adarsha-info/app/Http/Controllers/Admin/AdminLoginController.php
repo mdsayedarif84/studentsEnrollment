@@ -19,9 +19,10 @@ class AdminLoginController extends Controller
         $email= $request->email;
         $password= md5($request->password);
         $admin= DB::table('admin_logins')
-                ->where('email',$email)
-                ->where('password',$password)
-                ->first();
+                ->where([
+                    'email'=>$email,
+                    'password'=>$password
+                ])->first();
                 if($admin){
                     Session::put('adminData',$admin);
                     Session::put('email',$admin->email);
