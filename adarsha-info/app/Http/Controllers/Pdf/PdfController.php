@@ -27,7 +27,7 @@ class PdfController extends Controller
     public function sixPdfDownload($id){
         $sixStudent = DB::table('add_students')
             ->where('id',$id)
-            ->where('stu_class','six')
+            ->where('class','six')
             ->first();
         $pdf = PDF::loadView('admin.pdf.sixStudent-pdf',
             ['sixStudent'=>$sixStudent])->setOptions(['defaultFont' => 'sans-serif']);
@@ -36,7 +36,7 @@ class PdfController extends Controller
     public function sevenPdfDownload($id){
         $sevenStudent = DB::table('add_students')
             ->where('id',$id)
-            ->where('stu_class','seven')
+            ->where('class','seven')
             ->first();
         $pdf = PDF::loadView('admin.pdf.sevenStudent-pdf',
             ['sevenStudent'=>$sevenStudent])->setOptions(['defaultFont' => 'sans-serif']);

@@ -159,16 +159,16 @@
         <header>
 			<h1>View Six Student Information</h1>
 			<div class="text-center">
-				<img src="{{asset($sixStudent->stu_image)}}" width='100px'; height="80px" alt="not showing" style="border-radius:50%;">
+				<img src="{{asset($sixStudent->image)}}" width='100px'; height="80px" alt="not showing" style="border-radius:50%;">
 			</div>
             <table class="meta2">
 				<tr class="text-bold">
 					<th>Student Name #</th>
-					<td>{{$sixStudent->stu_name}}</td>
+					<td>{{$sixStudent->name}}</td>
 				</tr>
 				<tr>
 					<th> Student Email #</th>
-					<td>{{$sixStudent->stu_email}}</td>
+					<td>{{$sixStudent->email}}</td>
 				</tr>
 				<tr>
 					<th>Student Address #</span></th>
@@ -184,11 +184,11 @@
 			<table class="meta">
 				<tr>
 					<th>Student Roll #</th>
-					<td>{{$sixStudent->stu_roll}}</td>
+					<td>{{$sixStudent->roll}}</td>
 				</tr>
 				<tr>
 					<th>Student Class #</th>
-					<td>{{$sixStudent->stu_class}}</td>
+					<td>{{$sixStudent->class}}</td>
 				</tr>
 				<tr>
 					<th>Admission Date #</th>
@@ -196,7 +196,7 @@
 				</tr>
 				<tr>
 					<th>Phone Number #</th>
-					<td>{{$sixStudent->stu_phone}}</td>
+					<td>{{$sixStudent->phone}}</td>
 				</tr>
 			</table>
 			<table class="inventory">

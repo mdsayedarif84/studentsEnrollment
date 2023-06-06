@@ -11,7 +11,7 @@ class SixController extends Controller
 {
     public function six(){
         $sixStuDatas   = DB::table('add_students')
-        ->where('stu_class','six')
+        ->where('class','six')
         ->get();
         // return $sixStuDatas;
         return view('admin.course.six',['sixStuDatas' => $sixStuDatas]);

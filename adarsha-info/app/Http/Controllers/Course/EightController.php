@@ -11,7 +11,7 @@ class EightController extends Controller
 {
     public function eight(){
         $eightStuDatas   = DB::table('add_students')
-        ->where('stu_class','eight')
+        ->where('class','eight')
         ->get();
         // return $eightStuDatas;
         return view('admin.course.eight',['eightStuDatas' => $eightStuDatas]);

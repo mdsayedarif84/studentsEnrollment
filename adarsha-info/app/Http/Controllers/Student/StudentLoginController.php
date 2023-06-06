@@ -16,17 +16,17 @@ class StudentLoginController extends Controller
     }
     public function studentLogin(Request $request)
     {
-        $email= $request->stu_email;
+        $email= $request->email;
         $password= bcrypt($request->password);
         $student= DB::table('add_students')
                 ->where([
-                    'stu_email'=>$email,
+                    'email'=>$email,
                     'password'=>$password
                 ])->first();
                 return $student;
                 if($student){
                     Session::put('studentData',$student);
-                    Session::put('email',$student->stu_email);
+                    Session::put('email',$student->email);
                     Session::put('student_id',$student->id);
                     return Redirect::to('/dashboard');
                 }else{

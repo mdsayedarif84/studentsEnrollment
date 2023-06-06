@@ -10,7 +10,7 @@ class TenController extends Controller
 {
     public function ten(){
         $tenStuDatas   = DB::table('add_students')
-        ->where('stu_class','ten')
+        ->where('class','ten')
         ->get();
         // return $tenStuDatas;
         return view('admin.course.ten',['tenStuDatas' => $tenStuDatas]);

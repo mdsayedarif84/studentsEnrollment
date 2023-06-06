@@ -21,13 +21,13 @@
 						<thead>
 							<tr class="text-center">
 								<th>SL</th>
-								<th>Stu Name</th>
+								<th> Name</th>
 								<th>Email</th>
-								<th>Stu Class</th>
+								<th> Class</th>
 								<th>Admission Year</th>
 								<th>Address</th>
 								<th>Phone Nbr.</th>
-								<th>Stu Image</th>
+								<th> Image</th>
 								<th>Action</th>
 							</tr>
 						</thead>
@@ -36,14 +36,14 @@
                         @foreach($sixStuDatas as $sixStuData)
 							<tr >
 								<td class="details-control">{{ $i++ }}</td>
-								<td class="text-center">{{ $sixStuData->stu_name }}</td>
-								<td class="text-center">{{ $sixStuData->stu_email }}</td>
-								<td class="text-center">{{ $sixStuData->stu_class }}</td>
+								<td class="text-center">{{ $sixStuData->name }}</td>
+								<td class="text-center">{{ $sixStuData->email }}</td>
+								<td class="text-center">{{ $sixStuData->class }}</td>
 								<td class="text-center">{{ $sixStuData->admission_year }}</td>
 								<td class="text-center">{{ $sixStuData->address }}</td>
-								<td class="text-center">{{ $sixStuData->stu_phone }}</td>
+								<td class="text-center">{{ $sixStuData->phone }}</td>
 								<td>
-									<img src="{{asset( $sixStuData->stu_image)}} " width='80px'; height="60px" alt="not showing" style="border-radius:50%;">
+									<img src="{{asset( $sixStuData->image)}} " width='80px'; height="60px" alt="not showing" style="border-radius:50%;">
 								</td>
 								<td class="text-center">
 								<a href="{{route('view-student',['id'=>$sixStuData->id])}}" class="btn btn-outline-primary btn-sm">View</a>
