@@ -81,13 +81,13 @@
         article address { float: left; font-size: 125%; font-weight: bold; }
 
         /* table meta & balance */
-        table.meta, table.balance { float: right; width: 36%; }
+        table.meta, table.balance { float: left; width: 36%; }
         table.meta:after, table.balance:after { clear: both; content: ""; display: table; }
         /* table meta */
         table.meta th { width: 40%; }
         table.meta td { width: 60%; }
 
-        table.meta2 { float: left; width: 36%; }
+        table.meta2 { float: right; width: 36%; }
         table.meta2:after { clear: both; content: ""; display: table; }
 
         /* table meta2 */
@@ -168,9 +168,13 @@
 		<header>
 			<h1>View Student Information</h1>
 			<div class="text-center">
-				<img src="{{asset($student->image)}}" width='100px'; height="80px" alt="not showing" style="border-radius:50%;">
+				<img src="{{asset($student->image)}}" width='120px'; height="100px" alt="not showing" style="border-radius:50%;">
 			</div>
-            <table class="meta2">
+            <table class="meta">
+				<tr>
+					<th>Student Roll #</th>
+					<td>{{$student->roll}}</td>
+				</tr>
 				<tr class="text-bold">
 					<th>Student Name #</th>
 					<td>{{$student->name}}</td>
@@ -179,21 +183,11 @@
 					<th> Student Email #</th>
 					<td>{{$student->email}}</td>
 				</tr>
-				<tr>
-					<th>Student Address #</span></th>
-					<td>{{$student->address}}</td>
-				</tr>
+				
 			</table>
 		</header>
 		<article>
-			<address contenteditable>
-				<p class="text-info">Adarsha Student Information</p>
-			</address>
 			<table class="meta">
-				<tr>
-					<th>Student Roll #</th>
-					<td>{{$student->roll}}</td>
-				</tr>
 				<tr>
 					<th>Student Class #</th>
 					<td>{{$student->class}}</td>
@@ -205,6 +199,10 @@
 				<tr>
 					<th>Phone Number #</th>
 					<td>{{$student->phone}}</td>
+				</tr>
+				<tr>
+					<th>Student Address #</span></th>
+					<td>{{$student->address}}</td>
 				</tr>
 			</table>
 			<table class="inventory">
@@ -227,7 +225,7 @@
 				</tbody>
 			</table>
 			<a class="add">+</a>
-			<table class="balance">
+			<table class="meta2">
 				<tr>
 					<th><span contenteditable>Total</span></th>
 					<td><span data-prefix>$</span><span>600.00</span></td>

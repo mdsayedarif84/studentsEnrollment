@@ -162,6 +162,10 @@
 				<img src="{{asset($student->image)}}" width='100px'; height="80px" alt="not showing" style="border-radius:50%;">
 			</div>
             <table class="meta2">
+				<tr>
+					<th>Student Roll #</th>
+					<td>{{$student->roll}}</td>
+				</tr>
 				<tr class="text-bold">
 					<th>Student Name #</th>
 					<td>{{$student->name}}</td>
@@ -170,10 +174,7 @@
 					<th> Student Email #</th>
 					<td>{{$student->email}}</td>
 				</tr>
-				<tr>
-					<th>Student Address #</span></th>
-					<td>{{$student->address}}</td>
-				</tr>
+				
 			</table>
 		</header>
 		</header>
@@ -182,10 +183,6 @@
 				<p class="text-info">Adarsha Student Information</p>
 			</address>
 			<table class="meta">
-				<tr>
-					<th>Student Roll #</th>
-					<td>{{$student->roll}}</td>
-				</tr>
 				<tr>
 					<th>Student Class #</th>
 					<td>{{$student->class}}</td>
@@ -197,6 +194,10 @@
 				<tr>
 					<th>Phone Number #</th>
 					<td>{{$student->phone}}</td>
+				</tr>
+				<tr>
+					<th>Student Address #</span></th>
+					<td>{{$student->address}}</td>
 				</tr>
 			</table>
 			<table class="inventory">

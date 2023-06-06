@@ -1,7 +1,7 @@
 
 <html>
 	<head>
-    <sty>
+    <style>
          /* reset */
         {
             border: 0;
@@ -150,7 +150,8 @@
         }
 
         @page { margin: 0; }
-    </sty	</head>
+    </style>	
+</head>
 	<body>
 		<h1 style="color:red;">Adarsha High School-107569</h1>
 		<p style="color:red; text-align:center">Sadar,Noakhali. ESTD-1972</p>
@@ -161,6 +162,10 @@
 				<img src="{{asset($sevenStudent->image)}}" width='100px'; height="80px" alt="not showing" style="border-radius:50%;">
 			</div>
             <table class="meta2">
+				<tr>
+					<th>Student Roll #</th>
+					<td>{{$sevenStudent->roll}}</td>
+				</tr>
 				<tr class="text-bold">
 					<th>Student Name #</th>
 					<td>{{$sevenStudent->name}}</td>
@@ -169,10 +174,7 @@
 					<th> Student Email #</th>
 					<td>{{$sevenStudent->email}}</td>
 				</tr>
-				<tr>
-					<th>Student Address #</span></th>
-					<td>{{$sevenStudent->address}}</td>
-				</tr>
+				
 			</table>
 		</header>
 		</header>
@@ -181,10 +183,6 @@
 				<p class="text-info">Adarsha Student Information</p>
 			</address>
 			<table class="meta">
-				<tr>
-					<th>Student Roll #</th>
-					<td>{{$sevenStudent->roll}}</td>
-				</tr>
 				<tr>
 					<th>Student Class #</th>
 					<td>{{$sevenStudent->class}}</td>
@@ -196,6 +194,10 @@
 				<tr>
 					<th>Phone Number #</th>
 					<td>{{$sevenStudent->phone}}</td>
+				</tr>
+				<tr>
+					<th>Student Address #</span></th>
+					<td>{{$sevenStudent->address}}</td>
 				</tr>
 			</table>
 			<table class="inventory">
