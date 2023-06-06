@@ -49,7 +49,7 @@
                 @csrf
                 <div class="row">
                   <div class="form-group col-md-12 mb-4">
-                    <input name="stu_email" type="email" class="form-control input-lg" id="email" aria-describedby="emailHelp" placeholder="Username">
+                    <input name="email" type="email" class="form-control input-lg" id="email" aria-describedby="emailHelp" placeholder="Username">
                   </div>
                   <div class="form-group col-md-12 ">
                     <input name="password" type="password" class="form-control input-lg" id="password" placeholder="Password" required>
