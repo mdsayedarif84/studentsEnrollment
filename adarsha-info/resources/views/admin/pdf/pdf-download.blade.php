@@ -159,7 +159,7 @@
         <header>
 			<h1>View Student Information</h1>
 			<div class="text-center">
-				<img src="{{asset($student->image)}}" width='100px'; height="80px" alt="not showing" style="border-radius:50%;">
+				<img src="{{ public_path('stu_image/Al Amin.jpg') }}" width='100px'; height="80px" alt="not showing" style="border-radius:50%;">
 			</div>
             <table class="meta2">
 				<tr>
@@ -207,6 +207,7 @@
 						<th>Mohter Name #</th>
 						<th>Created At #</th>
 						<th>Updated At #</th>
+						<th>Image #</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -216,6 +217,10 @@
 						
 						<td>{{$student->created_at}}</td>
 						<td>{{$student->updated_at}}</td>
+						<td>
+							<img src="{{ $student->image }}">
+							
+						</td>
 					</tr>
 				</tbody>
 			</table>

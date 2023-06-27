@@ -9,11 +9,22 @@ use DB;
 class PdfController extends Controller
 {
     public function pdfDownload($id){
-        $student = DB::table('add_students')
+        $data = [
+            'student' => DB::table('add_students')
             ->where('id',$id)
-            ->first();
-        $pdf = PDF::loadView('admin.pdf.pdf-download',
-            ['student'=>$student])->setOptions(['defaultFont' => 'sans-serif']);
+            ->first(),
+        ];
+        // $student = DB::table('add_students')
+        //     ->where('id',$id)
+        //     ->first();
+            // return $data;
+        $pdf = PDF::loadView('admin.pdf.pdf-download',$data)->setOptions([
+                'defaultFont'=>'sans-serif',
+                'isHtml5ParserEnabled' => true,
+                'isRemoteEnabled', TRUE,
+                'debugKeepTemp', TRUE,
+                'chroot', ''
+                ])->setPaper('a4', 'portrait');
         return $pdf->stream('student.pdf');
     }
     public function TeacherpdfDownload($id){

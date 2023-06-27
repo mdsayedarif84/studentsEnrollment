@@ -25,7 +25,7 @@ use App\Http\Controllers\Teacher\TeacherController;
 //     return view('student-login');
 // });
 Route::get('/', [StudentLoginController::class, 'index'])->name('student-login');
-Route::post('/student_login', [StudentLoginController::class, 'studentLogin'])->name('student-dashboard');
+Route::post('/stu-login', [StudentLoginController::class, 'studentLogin'])->name('student-dashboard');
 Route::get('/backend', [AdminLoginController::class, 'index'])->name('admin-login');
 Route::post('/admin_login', [AdminLoginController::class, 'adminLogin'])->name('admin-dashboard');
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
