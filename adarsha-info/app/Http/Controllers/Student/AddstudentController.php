@@ -88,7 +88,9 @@ class AddstudentController extends Controller
         $student->roll = $request->roll;
         $student->father_name = $request->father_name;
         $student->mother_name = $request->mother_name;
-        $student->email = $request->email;
+        if($request->email){
+            $student->email = $request->email;
+        }
         $student->class = $request->class;
         if ($imageUrl) {
             $student->image = $imageUrl;
