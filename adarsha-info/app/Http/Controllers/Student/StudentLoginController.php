@@ -25,6 +25,7 @@ class StudentLoginController extends Controller
         // return $student;
         if ($student && Hash::check($credentials['password'], $student->password)){
             Session::put('student',$student);
+            Session::put('stu_id',$student->id);
             // echo 'Password and email match';
             return Redirect::to('/stuDashboard');
         } else {
@@ -32,6 +33,17 @@ class StudentLoginController extends Controller
             return redirect()->back();
         }
     }
+    public function StudentProfile()
+    {
+        $student_id=Session::get('stu_id');
+        $student = DB::table('add_students')
+            ->select('*')
+            ->where('id',$student_id)
+            ->first();
+            // return $student;
+        return view('studentViewPage.student.view-student',['student'=>$student]); 
+    }
+   
     public function stuLogout(){
         Session::put('name',null);
         Session::put('id',null);

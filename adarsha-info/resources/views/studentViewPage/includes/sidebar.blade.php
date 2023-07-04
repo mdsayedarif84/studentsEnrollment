@@ -21,15 +21,6 @@
                 <span class="brand-name text-truncate">Student Dashboard</span>
               </a>
             </div>
-            <div class=" text-center widget-profile">
-              <div  >
-                <img src="{{asset( $student->image)}}" width='100px'; height="80px" style="border-radius:50%;" alt="user image">
-              </div>
-              <div class="card-body">
-                <h4 class="py-2">{{$student->name}} </h4>
-                <p>{{$student->email}} </p>
-              </div>
-            </div>
             <!-- begin sidebar scrollbar -->
             <div class="" data-simplebar style="height: 100%;">
               <!-- sidebar menu -->
@@ -45,13 +36,13 @@
                   <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#components"
                     aria-expanded="false" aria-controls="components">
                     <i class="mdi mdi-folder-multiple-outline"></i>
-                    <span class="nav-text">Student</span> <b class="caret"></b>
+                    <span class="nav-text">Profile</span> <b class="caret"></b>
                   </a>
                   <ul class="collapse " id="components" data-parent="#sidebar-menu">
                     <div class="sub-menu">
                       <li class="">
-                        <a class="sidenav-item-link" href="{{route('all-student')}}">
-                          <span class="nav-text">All Student</span>
+                        <a class="sidenav-item-link" href="{{route('student_profile')}}">
+                          <span class="nav-text">Student</span>
                         </a>
                       </li>
                     </div>

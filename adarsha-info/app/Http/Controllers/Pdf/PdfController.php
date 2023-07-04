@@ -20,10 +20,7 @@ class PdfController extends Controller
             // return $data;
         $pdf = PDF::loadView('admin.pdf.pdf-download',$data)->setOptions([
                 'defaultFont'=>'sans-serif',
-                'isHtml5ParserEnabled' => true,
-                'isRemoteEnabled', TRUE,
-                'debugKeepTemp', TRUE,
-                'chroot', ''
+                
                 ])->setPaper('a4', 'portrait');
         return $pdf->stream('student.pdf');
     }

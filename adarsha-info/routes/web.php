@@ -24,11 +24,13 @@ use App\Http\Controllers\Teacher\TeacherController;
 // Route::get('/', function () {
 //     return view('student-login');
 // });
-Route::get('/', [StudentLoginController::class, 'index'])->name('student-login');
+//student user login section
+Route::get('/', [StudentLoginController::class, 'index']);
 Route::post('/stu-login', [StudentLoginController::class, 'studentLogin'])->name('student-dashboard');
 Route::get('/stuDashboard', [DashboardController::class, 'stuDashboard'])->name('stuDashboard');
+Route::get('/student-profile', [StudentLoginController::class, 'StudentProfile'])->name('student_profile');
 Route::get('/stu-logout', [StudentLoginController::class, 'stuLogout'])->name('stuLogout');
-
+//admin login section
 Route::get('/backend', [AdminLoginController::class, 'index'])->name('admin-login');
 Route::post('/admin_login', [AdminLoginController::class, 'adminLogin'])->name('admin-dashboard');
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
@@ -56,11 +58,9 @@ Route::get('/six', [SixController::class, 'six'])->name('six');
 Route::get('/view-student/{id}', [SixController::class, 'sixStudnetView'])->name('view-student');
 Route::get('/sixPdf/{id}', [PdfController::class, 'sixPdfDownload'])->name('six-pdf');
 
-
 Route::get('/seven', [SevenController::class, 'seven'])->name('seven');
 Route::get('/view-student/{id}', [SevenController::class, 'sevenStudnetView'])->name('view-student');
 Route::get('/sevenPdf/{id}', [PdfController::class, 'sevenPdfDownload'])->name('sevenStudent-pdf');
-
 
 Route::get('/eight', [EightController::class, 'eight'])->name('eight');
 Route::get('/view-student/{id}', [EightController::class, 'eightStudnetView'])->name('view-student');
@@ -75,7 +75,6 @@ Route::get('/studnetPdf/{id}', [PdfController::class, 'pdfDownload'])->name('stu
 Route::get('/addTeacher', [TeacherController::class, 'addTeacher'])->name('add-teacher');
 Route::post('/saveTeacher', [TeacherController::class, 'sotreData'])->name('save-teacher');
 Route::get('/teacherPdf/{id}', [PdfController::class, 'TeacherpdfDownload'])->name('teacher-pdf');
-
 
 Route::get('/allTeacher', [TeacherController::class, 'allTeacher'])->name('all-teacher');
 Route::get('/editTeacher/{id}', [TeacherController::class, 'editTeacher'])->name('edit-teacher');

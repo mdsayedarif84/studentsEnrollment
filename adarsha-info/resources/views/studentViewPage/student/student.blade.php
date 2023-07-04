@@ -1,13 +1,13 @@
 @extends('studentViewPage.dashboard')
 @section('title')
-    AllStudent
+    Student
 @endsection
 @section('body')
     <div class="breadcrumb-wrapper">
 	    <div class="card-header">
-            <h4 class="text-danger text-bold"> All Student
-                <a href="{{route('add-student')}}" class="btn btn-danger btn-sm float-right">
-                    <span class="mdi-hand-pointing-right"> </span>Add Student
+            <h4 class="text-danger text-bold"> Student
+                <a href="" class="btn btn-danger btn-sm float-right">
+                    <span class="mdi-hand-pointing-right"> </span> Student
                 </a>
             </h4>
         </div>
@@ -36,7 +36,7 @@
 							</thead>
 							<tbody>
 							@php($i=1)
-							@foreach($stuDatas as $stuData)
+							@foreach($stuDatum as $stuData)
 								<tr >
 									<td class="details-control">{{ $i++ }}</td>
 									<td class="text-center">{{ $stuData->name }}</td>
@@ -49,17 +49,11 @@
 										<img src="{{asset( $stuData->image)}} " width='80px'; height="60px" alt="not showing" style="border-radius:50%;">
 									</td>
 									<td class="text-center">
-										<a href="{{route('view-student',['id'=>$stuData->id])}}" title="View" class="btn btn-outline-primary btn-sm">
+										<a href="{{route('viewStudent',['id'=>$stuData->id])}}" title="View" class="btn btn-outline-primary btn-sm">
 											<span class="mdi mdi-file-find"></span>
-										</a>
-										<a href="{{route('edit-student',['id'=>$stuData->id])}}" title="Edit" class="btn btn-outline-success btn-sm">
-											<span class="mdi mdi-playlist-edit"></span>
 										</a>
 										<a href="{{route('student-pdf',['id'=>$stuData->id])}}" class="btn btn-outline-success btn-sm" title="pdf">
 											<span class=" mdi mdi-cloud-download"></span>
-										</a>
-										<a href="{{route('delete-student',['id'=>$stuData->id])}}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete this ??')" id="delete" title="delete">
-											<span class="mdi mdi-trash-can"></span>
 										</a>
 									</td>
 								</tr>
