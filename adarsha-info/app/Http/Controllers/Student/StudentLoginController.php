@@ -41,7 +41,32 @@ class StudentLoginController extends Controller
             ->where('id',$student_id)
             ->first();
             // return $student;
-        return view('studentViewPage.student.view-student',['student'=>$student]); 
+        return view('studentViewPage.student.student-profile',['student'=>$student]); 
+    }
+    public function StudentProfileSetting()
+    {
+        $student_id=Session::get('stu_id');
+        $student = DB::table('add_students')
+            ->select('*')
+            ->where('id',$student_id)
+            ->first();
+        return view('studentViewPage.student.profile-setting',['student'=>$student]); 
+    }
+    public function StudentProfileUpdate(Request $request)
+    {
+        $student_id=Session::get('stu_id');
+        $data=array();
+        $data['phone']=$request->phone;
+        if ($request->password != '') {
+            $data['password'] = bcrypt($request->password);
+        } else {
+            $data['password'] = $request->password;
+        }
+        $data['address']=$request->address;
+        DB::table('add_students')
+            ->where('id',$student_id)
+            ->update($data);
+            return redirect('/student-profile')->with('message', 'Student Profile Update Successfully');
     }
    
     public function stuLogout(){

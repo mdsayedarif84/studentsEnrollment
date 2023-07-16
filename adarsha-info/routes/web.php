@@ -25,11 +25,15 @@ use App\Http\Controllers\Teacher\TeacherController;
 //     return view('student-login');
 // });
 //student user login section
+Route::get('/stuDashboard', [DashboardController::class, 'stuDashboard'])->name('stuDashboard');
 Route::get('/', [StudentLoginController::class, 'index']);
 Route::post('/stu-login', [StudentLoginController::class, 'studentLogin'])->name('student-dashboard');
-Route::get('/stuDashboard', [DashboardController::class, 'stuDashboard'])->name('stuDashboard');
 Route::get('/student-profile', [StudentLoginController::class, 'StudentProfile'])->name('student_profile');
+Route::get('/student-profile-setting', [StudentLoginController::class, 'StudentProfileSetting'])->name('profile_setting');
+Route::post('/student-profile-update', [StudentLoginController::class, 'StudentProfileUpdate'])->name('profile_update');
+
 Route::get('/stu-logout', [StudentLoginController::class, 'stuLogout'])->name('stuLogout');
+
 //admin login section
 Route::get('/backend', [AdminLoginController::class, 'index'])->name('admin-login');
 Route::post('/admin_login', [AdminLoginController::class, 'adminLogin'])->name('admin-dashboard');

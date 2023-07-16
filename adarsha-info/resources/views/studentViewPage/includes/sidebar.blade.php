@@ -36,13 +36,13 @@
                   <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#components"
                     aria-expanded="false" aria-controls="components">
                     <i class="mdi mdi-folder-multiple-outline"></i>
-                    <span class="nav-text">Profile</span> <b class="caret"></b>
+                    <span class="nav-text"> Student Profile</span> <b class="caret"></b>
                   </a>
                   <ul class="collapse " id="components" data-parent="#sidebar-menu">
                     <div class="sub-menu">
                       <li class="">
                         <a class="sidenav-item-link" href="{{route('student_profile')}}">
-                          <span class="nav-text">Student</span>
+                          <span class="nav-text">Profile</span>
                         </a>
                       </li>
                     </div>
@@ -57,8 +57,8 @@
                   <ul class="collapse " id="icons" data-parent="#sidebar-menu">
                     <div class="sub-menu">
                       <li class="">
-                        <a class="sidenav-item-link" href="{{route('tution-fee')}}">
-                          <span class="nav-text">Tution Fee</span>
+                        <a class="sidenav-item-link" href="{{route('profile_setting')}}">
+                          <span class="nav-text">Profile Setting</span>
                         </a>
                       </li>
                       <li class="">

@@ -16,7 +16,7 @@
     </style>
     <div class="content-wrapper ">
         <div class="container">
-            <marquee><h3 class="text-danger font-weight-bolder">Welcome Back Our Add Student Page.</h3></marquee>
+            <marquee><h3 class="text-danger font-weight-bolder">Welcome Back Our Edit Student Page.</h3></marquee>
             <div class="card">
                 @if($message   =   Session::get('message'))
                     <h1 class="text-center text-primary" id="msg">{{ $message }}</h1>
