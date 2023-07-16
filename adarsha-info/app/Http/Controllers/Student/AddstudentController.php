@@ -56,12 +56,12 @@ class AddstudentController extends Controller
     {
         $student = new AddStudent();
         $student->name = $request->name;
-        $student->roll = $requeroll;
+        $student->roll = $request->roll;
         $student->father_name = $request->father_name;
         $student->mother_name = $request->mother_name;
         $student->email = $request->email;
         $student->class = $request->class;
-        $student->stu_image = $imageUrl;
+        $student->image = $imageUrl;
         $student->address = $request->address;
         $student->phone = $request->phone;
         $student->admission_year = $request->admission_year;

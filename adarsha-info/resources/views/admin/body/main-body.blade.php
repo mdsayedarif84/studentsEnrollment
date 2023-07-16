@@ -95,7 +95,7 @@
           <div class="card mb-1 bg-secondary">
             <div class="card-body">
               <h4 class="text-white" >Total SSC Student
-                <span class="mdi-hand-pointing-right float-right">{{$total['sixCount']}}</span>
+                <span class="mdi-hand-pointing-right float-right">{{$total['sscCount']}}</span>
               </h4>
             </div>
           </div>

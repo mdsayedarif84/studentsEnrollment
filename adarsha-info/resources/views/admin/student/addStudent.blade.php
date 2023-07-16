@@ -152,6 +152,7 @@
                                                 <option value="eight">Eight</option>
                                                 <option value="nine">Nine</option>
                                                 <option value="ten">Ten</option>
+                                                <option value="ssc">SSC</option>
                                             </select>
                                             @error('class')
                                                 <span class="invalid-feedback" role="alert">
