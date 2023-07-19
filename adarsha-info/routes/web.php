@@ -3,6 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Dashboard\DashboardController;
+//class
+use App\Http\Controllers\Class\ClassController;
+
+//subject
+use App\Http\Controllers\Subject\SubjectController;
+
 //Student
 use App\Http\Controllers\Student\StudentLoginController;
 use App\Http\Controllers\Student\AddstudentController;
@@ -39,6 +45,20 @@ Route::get('/backend', [AdminLoginController::class, 'index'])->name('admin-logi
 Route::post('/admin_login', [AdminLoginController::class, 'adminLogin'])->name('admin-dashboard');
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
+//class
+Route::get('/add-class', [ClassController::class, 'index'])->name('class');
+Route::post('/save-class', [ClassController::class, 'store'])->name('save-class');
+Route::get('/manage-class', [ClassController::class, 'manageClass'])->name('manage-class');
+Route::get('/inactive-class/{id}', [ClassController::class, 'inactiveClass'])->name('inactive-class');
+Route::get('/active-class/{id}', [ClassController::class, 'activeClass'])->name('active-class');
+
+
+//subject
+Route::get('/add-subject', [SubjectController::class, 'index'])->name('subject');
+Route::post('/save-subject', [SubjectController::class, 'store'])->name('save-subject');
+Route::get('/manage-subject', [SubjectController::class, 'manageSubject'])->name('manage-subject');
+
+
 Route::get('/logout', [AdminLoginController::class, 'logout'])->name('logout');
 Route::get('/email-check/{email}', [AddstudentController::class, 'emailCheck'])->name('email-check');
 
@@ -49,7 +69,6 @@ Route::get('/addStudent', [AddstudentController::class, 'addStudent'])->name('ad
 Route::post('/saveStudent', [AddstudentController::class, 'sotre'])->name('save-student');
 Route::get('/edit-student/{id}', [AddstudentController::class, 'editStudent'])->name('edit-student');
 Route::post('/update-student', [AddstudentController::class, 'studnetFinalUpdateInfo'])->name('update-student');
-
 Route::get('/allStudent', [AllstudentController::class, 'allStudent'])->name('all-student');
 Route::get('/delete/{id}', [AllstudentController::class, 'deleteStudent'])->name('delete-student');
 Route::get('/view-student/{id}', [AllstudentController::class, 'studnetView'])->name('view-student');
