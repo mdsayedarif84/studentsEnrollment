@@ -46,7 +46,7 @@
                                                     <span class=" mdi mdi-arrow-down-bold"></span>
                                                 </a>
                                             @endif
-											<a href="" title="Edit" class="btn btn-outline-success btn-sm">
+											<a href="{{route('edit-class',['id'=>$getClass->id]) }}" title="Edit" class="btn btn-outline-success btn-sm">
 												<span class="mdi mdi-playlist-edit"></span>
 											</a>
 											<a href="" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete this ??')" id="delete" title="delete">

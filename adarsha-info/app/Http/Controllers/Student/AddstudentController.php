@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 use Session;
 use DB;
 use App\Models\AddStudent;
+use App\Models\AddClass;
 use Intervention\Image\Facades\Image;
 
 class AddstudentController extends Controller
 {
    public function addStudent(){
-    return view('admin.student.addStudent');
+    $activeClasses    = AddClass::where('status',1)->orderBy('id','DESC')->get();
+    return view('admin.student.addStudent',compact('activeClasses'));
    }
    protected function DataValidation($request){
         $this->validate($request, 

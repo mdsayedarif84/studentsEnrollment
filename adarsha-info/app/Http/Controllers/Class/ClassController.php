@@ -52,4 +52,17 @@ class ClassController extends Controller
         $class->save();
         return redirect('/manage-class')->with('message','Class info active successfully');
     }
+    public function editClass($id)
+    {
+        $editClass = AddClass::find($id);
+        return view('admin.class.edit-class',compact('editClass'));
+    }
+    public function updateClass(Request $request){
+        $classById   =   AddClass::find($request->class_id);
+        $classById->class_name  =   $request->class_name;
+        $classById->status        =   $request->status;
+        $classById->save();
+        return redirect('/manage-class')->with('message', 'Class Update Successfully');
+        
+    }
 }

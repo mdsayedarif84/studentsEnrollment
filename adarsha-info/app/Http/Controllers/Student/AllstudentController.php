@@ -12,7 +12,7 @@ use Redirect;
 class AllstudentController extends Controller{
     public function allStudent()
     {
-        $stuDatas   = DB::table('add_students')->get();
+        $stuDatas   = DB::table('add_students')->orderBy('id','DESC')->get();
         //return $stuDatas;
         return view('admin.student.allStudent', ['stuDatas' => $stuDatas]);
     }

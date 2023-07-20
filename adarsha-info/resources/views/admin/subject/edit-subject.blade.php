@@ -1,6 +1,6 @@
 @extends('admin.dashboard')
 @section('title')
-    AddSubject
+    EditSubject
 @endsection
 @section('body')
     <div class="content-wrapper ">
@@ -13,19 +13,20 @@
                 <div class="card-body">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="text-danger text-bold"> Add Subject
+                            <h4 class="text-danger text-bold"> Edit Subject
                                 <a href="{{route('manage-subject')}}" class="btn btn-danger btn-sm float-right">
                                     <span class="mdi-hand-pointing-right"> </span>Manage Subject</a>
                             </h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{route('save-subject')}}" method="POST" enctype="multipart/form-data"  class="form-horizontal" >
+                            <form action="{{route('subject-update')}}" method="POST" id="editData" enctype="multipart/form-data"  class="form-horizontal" >
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group row">
                                         <label for="subject_name" class="col-sm-4 col-form-label text-right">Subject Name</label>
                                         <div class="col-sm-8">
-                                            <input type="text" name="subject_name" value="{{ old('subject_name') }}" class="form-control @error('subject_name') is-invalid @enderror" id="name" placeholder="Enter name">
+                                            <input type="text" name="subject_name" value="{{ $editSubject->subject_name }}" class="form-control @error('subject_name') is-invalid @enderror" id="name" placeholder="Enter name">
+                                            <input type="hidden" name="sub_id" value="{{ $editSubject->id }}" class="form-control " >
                                             @error('subject_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->has('subject_name') ? $errors->first('subject_name') : ' '  }}</strong>
@@ -53,7 +54,7 @@
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
-                                    <button type="submit" :disabled="form.busy" class="btn btn-outline-success offset-sm-4">Save Data</button>
+                                    <button type="submit" :disabled="form.busy" class="btn btn-outline-success offset-sm-4">Update Data</button>
                                     <button type="reset" class="btn btn-outline-danger ">Reset</button>
                                 </div>
                                 <!-- /.card-footer -->
@@ -64,4 +65,7 @@
             </div>
         </div>
     </div>
+    <script>
+        document.forms['editData'].elements['status'].value = '{!! $editSubject->status !!}';
+    </script>
 @endsection

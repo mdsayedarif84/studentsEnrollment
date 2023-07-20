@@ -51,13 +51,17 @@ Route::post('/save-class', [ClassController::class, 'store'])->name('save-class'
 Route::get('/manage-class', [ClassController::class, 'manageClass'])->name('manage-class');
 Route::get('/inactive-class/{id}', [ClassController::class, 'inactiveClass'])->name('inactive-class');
 Route::get('/active-class/{id}', [ClassController::class, 'activeClass'])->name('active-class');
-
+Route::get('/edit-class/{id}', [ClassController::class, 'editClass'])->name('edit-class');
+Route::post('/class-update', [ClassController::class, 'updateClass'])->name('class-update');
 
 //subject
 Route::get('/add-subject', [SubjectController::class, 'index'])->name('subject');
 Route::post('/save-subject', [SubjectController::class, 'store'])->name('save-subject');
 Route::get('/manage-subject', [SubjectController::class, 'manageSubject'])->name('manage-subject');
-
+Route::get('/inactive/{id}', [SubjectController::class, 'inactiveSubject'])->name('inactive-subject');
+Route::get('/active/{id}', [SubjectController::class, 'activeSubject'])->name('active-subject');
+Route::get('/subject-edit/{id}', [SubjectController::class, 'editSubject'])->name('edit-subject');
+Route::post('/subject-update', [SubjectController::class, 'updateSubject'])->name('subject-update');
 
 Route::get('/logout', [AdminLoginController::class, 'logout'])->name('logout');
 Route::get('/email-check/{email}', [AddstudentController::class, 'emailCheck'])->name('email-check');

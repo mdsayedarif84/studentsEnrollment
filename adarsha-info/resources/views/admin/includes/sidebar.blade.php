@@ -63,7 +63,7 @@
                         </a>
                       </li>
                       <li class="">
-                        <a class="sidenav-item-link" href="{{route('all-student')}}">
+                        <a class="sidenav-item-link" href="{{route('manage-subject')}}">
                           <span class="nav-text">Manage Subject</span>
                         </a>
                       </li>
