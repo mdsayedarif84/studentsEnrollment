@@ -74,13 +74,22 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="email" class="col-sm-4 col-form-label text-right">Student Email</label>
-                                        <div class="col-sm-8">
+                                        <label for="email" class="col-sm-2 col-form-label text-right">Student Email</label>
+                                        <div class="col-sm-4">
                                             <input id="email" type="email" name="email" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror"  placeholder="Enter email">
                                             <span class="text-danger" id="res"></span>
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->has('email') ? $errors->first('email') : ' '  }}</strong>
+                                                </span>
+                                            @enderror                                          
+                                        </div>
+                                        <label for="admission_year	" class="col-sm-2 col-form-label text-right">Admission Year</label>
+                                        <div class="col-sm-4">
+                                            <input type="date" value="{{ old('admission_year	') }}" name="admission_year" class="form-control @error('admission_year	') is-invalid @enderror" id="admission_year" placeholder="Enter admission_year">
+                                            @error('admission_year	')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $errors->has('admission_year	') ? $errors->first('admission_year	') : ' '  }}</strong>
                                                 </span>
                                             @enderror                                          
                                         </div>
@@ -101,17 +110,6 @@
                                             <input id="password_confirm" onChange="checkPasswordMatch();"  type="password" name="password_confirmation" value="{{ old('password') }}" class="form-control " placeholder="Enter password">
                                             <span class="text-danger" id="match"></span>
                                                                                     
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="admission_year	" class="col-sm-4 col-form-label text-right">Admission Year</label>
-                                        <div class="col-sm-8">
-                                            <input type="date" value="{{ old('admission_year	') }}" name="admission_year" class="form-control @error('admission_year	') is-invalid @enderror" id="admission_year" placeholder="Enter admission_year">
-                                            @error('admission_year	')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->has('admission_year	') ? $errors->first('admission_year	') : ' '  }}</strong>
-                                                </span>
-                                            @enderror                                          
                                         </div>
                                     </div>
                                     <div class="form-group row">
