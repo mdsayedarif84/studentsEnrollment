@@ -9,7 +9,7 @@
         }
         .showPassword i{
             position: absolute;
-            margin-left: 570px;
+            margin-left: 250px;
             bottom: 10px;
             cursor: pointer;
         }
@@ -34,8 +34,8 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group row">
-                                        <label for="name" class="col-sm-4 col-form-label text-right">Student Name</label>
-                                        <div class="col-sm-8">
+                                        <label for="name" class="col-sm-2 col-form-label text-right">Student Name</label>
+                                        <div class="col-sm-4">
                                             <input type="text" name="name" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Enter name">
                                             @error('name')
                                                 <span class="invalid-feedback" role="alert">
@@ -43,11 +43,9 @@
                                                 </span>
                                             @enderror                                          
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="roll" class="col-sm-4 col-form-label text-right">Student Roll</label>
-                                        <div class="col-sm-8">
-                                            <input type="number" name="roll" value="{{ old('roll') }}" class="form-control @error('roll') is-invalid @enderror" id="name" placeholder="Enter roll">
+                                        <label for="roll" class="col-sm-2 col-form-label text-right">Student Roll</label>
+                                        <div class="col-sm-4">
+                                            <input type="number" name="roll" value="{{ old('roll') }}" class="form-control @error('roll') is-invalid @enderror" id="roll" placeholder="Enter roll">
                                             @error('roll')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->has('roll') ? $errors->first('roll') : ' '  }}</strong>
@@ -56,8 +54,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="father_name" class="col-sm-4 col-form-label text-right">Father Name</label>
-                                        <div class="col-sm-8">
+                                        <label for="father_name" class="col-sm-2 col-form-label text-right">Father Name</label>
+                                        <div class="col-sm-4">
                                             <input type="text" name="father_name" value="{{ old('father_name') }}" class="form-control @error('father_name') is-invalid @enderror" id="name" placeholder="Enter father_name ">
                                             @error('father_name')
                                                 <span class="invalid-feedback" role="alert">
@@ -65,10 +63,8 @@
                                                 </span>
                                             @enderror                                          
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="mother_name" class="col-sm-4 col-form-label text-right">Mother Name</label>
-                                        <div class="col-sm-8">
+                                        <label for="mother_name" class="col-sm-2 col-form-label text-right">Mother Name</label>
+                                        <div class="col-sm-4">
                                             <input type="text" name="mother_name" value="{{ old('mother_name') }}" class="form-control @error('mother_name') is-invalid @enderror" id="mother_name" placeholder="Enter mother_name">
                                             @error('mother_name')
                                                 <span class="invalid-feedback" role="alert">
@@ -90,8 +86,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="password" class="col-sm-4 col-form-label text-right">Password</label>
-                                        <div class="col-sm-8 showPassword">
+                                        <label for="password" class="col-sm-2 col-form-label text-right">Password</label>
+                                        <div class="col-sm-4 showPassword">
                                             <input id="password"  type="password" name="password" value="{{ old('password') }}" class="form-control @error('password') is-invalid @enderror" placeholder="Enter password">
                                             <i class="mdi mdi-eye-off text-danger " id="togglePassword"></i>
                                             @error('password')
@@ -100,10 +96,8 @@
                                                 </span>
                                             @enderror                                          
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="password_confirm" class="col-sm-4 col-form-label text-right">Confirm Password</label>
-                                        <div class="col-sm-8">
+                                        <label for="password_confirm" class="col-sm-2 col-form-label text-right">Confirm Password</label>
+                                        <div class="col-sm-4">
                                             <input id="password_confirm" onChange="checkPasswordMatch();"  type="password" name="password_confirmation" value="{{ old('password') }}" class="form-control " placeholder="Enter password">
                                             <span class="text-danger" id="match"></span>
                                                                                     
@@ -121,8 +115,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="address" class="col-sm-4 col-form-label text-right">Address</label>
-                                        <div class="col-sm-8">
+                                        <label for="address" class="col-sm-2 col-form-label text-right">Address</label>
+                                        <div class="col-sm-4">
                                             <input type="text" value="{{ old('address') }}" name="address" class="form-control @error('address') is-invalid @enderror" id="name" placeholder="Enter Address">
                                             @error('address')
                                                 <span class="invalid-feedback" role="alert">
@@ -130,10 +124,8 @@
                                                 </span>
                                             @enderror                                          
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="phone" class="col-sm-4 col-form-label text-right">Student Phone</label>
-                                        <div class="col-sm-8">
+                                        <label for="phone" class="col-sm-2 col-form-label text-right">Student Phone</label>
+                                        <div class="col-sm-4">
                                             <input type="number" value="{{ old('phone') }}" name="phone" class="form-control @error('phone') is-invalid @enderror" id="name" placeholder="Enter Stu Phone">
                                             @error('phone')
                                                 <span class="invalid-feedback" role="alert">
@@ -143,8 +135,17 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="class" class="col-sm-4 col-form-label text-right">Sudent Class</label>
-                                        <div class="col-sm-8">
+                                        <label for="phone" class="col-sm-2 col-form-label text-right">Student Phone</label>
+                                        <div class="col-sm-4">
+                                            <input type="number" value="{{ old('phone') }}" name="phone" class="form-control @error('phone') is-invalid @enderror" id="name" placeholder="Enter Stu Phone">
+                                            @error('phone')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $errors->has('phone') ? $errors->first('phone') : ' '  }}</strong>
+                                                </span>
+                                            @enderror                                          
+                                        </div>
+                                        <label for="class" class="col-sm-2 col-form-label text-right">Sudent Class</label>
+                                        <div class="col-sm-4">
                                             <select name="class" class="form-select form-control @error('class') is-invalid @enderror" >
                                                 <option  disabled selected >Student Class</option>
                                                 @foreach($activeClasses as $activeClass)
@@ -159,8 +160,9 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="image" class="col-sm-4 col-form-label text-right">Student Image</label>
-                                        <div class="col-sm-8">
+                                        <label for="image" class="col-sm-2 col-form-label text-right"></label>
+                                        <label for="image" class="col-sm-2 col-form-label text-right">Student Image</label>
+                                        <div class="col-sm-4">
                                             <input type="file" value="{{ old('image') }}" name="image" class="form-control @error('image') is-invalid @enderror" id="name" placeholder="Enter Stu Image">
                                             @error('image')
                                                 <span class="invalid-feedback" role="alert">
@@ -168,6 +170,7 @@
                                                 </span>
                                             @enderror                                          
                                         </div>
+                                        <label for="image" class="col-sm-2 col-form-label text-right"></label>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
