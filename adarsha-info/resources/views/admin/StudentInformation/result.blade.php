@@ -42,6 +42,22 @@
                                             @enderror 
                                         </div>
                                     </div>
+                                    <div class="form-gorup row">
+                                        <label for="admission_year	" class="col-sm-4 col-form-label text-right">Admission Year</label>
+                                        <div class="col-sm-8">
+                                            <select name="class" class="form-select form-control @error('class') is-invalid @enderror" >
+                                                <option  disabled selected >Student Name</option>
+                                                @foreach($classwiseStu as $data)
+                                                <option value="six">{{$data->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('class')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $errors->has('class') ? $errors->first('class') : ' '  }}</strong>
+                                                </span>
+                                            @enderror 
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
