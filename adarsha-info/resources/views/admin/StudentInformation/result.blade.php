@@ -28,12 +28,11 @@
                                         <div class="col-sm-8">
                                             <select name="class" class="form-select form-control @error('class') is-invalid @enderror" >
                                                 <option  disabled selected >Student Class</option>
-                                                <option value="six">Six</option>
-                                                <option value="seven">Seven</option>
-                                                <option value="eight">Eight</option>
-                                                <option value="nine">Nine</option>
-                                                <option value="ten">Ten</option>
-                                                <option value="ssc">SSC</option>
+                                                @foreach($activeClasses as $classItem)
+                                                <a hre="">
+                                                    <option value="{{ $classItem->class_name }}">{{ $classItem->class_name }}</option>
+                                                </a>
+                                                @endforeach
                                             </select>
                                             @error('class')
                                                 <span class="invalid-feedback" role="alert">

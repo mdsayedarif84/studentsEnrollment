@@ -12,8 +12,12 @@ use Intervention\Image\Facades\Image;
 
 class AddstudentController extends Controller
 {
+    public function activeClasses(){
+        $getActiveClasses    = AddClass::where('status',1)->orderBy('id','DESC')->get();
+        return $getActiveClasses;
+    }
    public function addStudent(){
-    $activeClasses    = AddClass::where('status',1)->orderBy('id','DESC')->get();
+    $activeClasses    = $this->activeClasses();
     return view('admin.student.addStudent',compact('activeClasses'));
    }
    protected function DataValidation($request){
