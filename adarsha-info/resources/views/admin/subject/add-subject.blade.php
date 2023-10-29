@@ -49,7 +49,6 @@
                                             @enderror 
                                         </div>
                                     </div>
-                                    
                                     <div class="form-group row">
                                         <label for="class" class="col-sm-4 col-form-label text-right">Status</label>
                                         <div class="col-sm-8">
