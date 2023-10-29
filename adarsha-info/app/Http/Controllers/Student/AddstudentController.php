@@ -113,10 +113,10 @@ class AddstudentController extends Controller
     }
     public function studnetFinalUpdateInfo(Request $request)
     {
-        $studentImage = $request->file('stu_image');
+        $studentImage = $request->file('image');
         $student   =   AddStudent::find($request->stu_id);
         if ($studentImage) {
-            unlink($student->stu_image);
+            unlink($student->image);
             $imageUrl = $this->studentImageUpload($request);
             $this->updateStudentBsicInfo($student,$request, $imageUrl);
         } else {

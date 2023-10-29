@@ -24,6 +24,7 @@
 							<thead>
 								<tr class="text-center">
 									<th>SL</th>
+									<th> Subject Name</th>
 									<th> Class Name</th>
 									<th> Status</th>
 									<th>Action</th>
@@ -35,6 +36,7 @@
 									<tr >
 										<td class="details-control">{{$i++}}</td>
 										<td class="text-center">{{$getSubject->subject_name}}</td>
+										<td class="text-center">{{$getSubject->class_id}}</td>
 										<td class="text-center">{{$getSubject->status == 1 ? 'Active' : 'Inactive'}}</td>
 										<td class="text-center">
 											@if($getSubject->status == 1)

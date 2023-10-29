@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 use App\Models\Subject;
 use Session;
 use DB;
+use App\Models\AddClass;
 
 class SubjectController extends Controller
 {
     public function index()
     {
-        return view('admin.subject.add-subject');
+        $getClasses     =   AddClass::where('status',1)->get();
+        return view('admin.subject.add-subject',compact('getClasses'));
     }
     protected function validData($request){
         $this->validate($request,
@@ -55,12 +57,14 @@ class SubjectController extends Controller
     }
     public function editSubject($id)
     {
+        $getClasses     =   AddClass::where('status',1)->get();
         $editSubject = Subject::find($id);
-        return view('admin.subject.edit-subject',compact('editSubject'));
+        return view('admin.subject.edit-subject',compact('editSubject','getClasses'));
     }
     public function updateSubject(Request $request){
         $subjectById   =   Subject::find($request->sub_id);
         $subjectById->subject_name  =   $request->subject_name;
+        $subjectById->class_id  =   $request->class_id;
         $subjectById->status        =   $request->status;
         $subjectById->save();
         return redirect('/manage-subject')->with('message', 'Subject Update Successfully');
