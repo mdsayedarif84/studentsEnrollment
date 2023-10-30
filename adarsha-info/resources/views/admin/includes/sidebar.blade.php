@@ -71,6 +71,27 @@
                   </ul>
                 </li>
                 <li class="has-sub ">
+                  <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#clsssWiseSub"
+                    aria-expanded="false" aria-controls="components1">
+                    <i class="mdi mdi-folder-multiple-outline"></i>
+                    <span class="nav-text">Class Wise Subject</span> <b class="caret"></b>
+                  </a>
+                  <ul class="collapse " id="clsssWiseSub" data-parent="#sidebar-menu">
+                    <div class="sub-menu">
+                      <li class="">
+                        <a class="sidenav-item-link" href="{{route('add-classBaseSubject')}}">
+                          <span class="nav-text">Add Class Subject</span>
+                        </a>
+                      </li>
+                      <li class="">
+                        <a class="sidenav-item-link" href="{{route('manage-classBaseSubject')}}">
+                          <span class="nav-text">Manage Class Subject</span>
+                        </a>
+                      </li>
+                    </div>
+                  </ul>
+                </li>
+                <li class="has-sub ">
                   <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#components"
                     aria-expanded="false" aria-controls="components">
                     <i class="mdi mdi-folder-multiple-outline"></i>

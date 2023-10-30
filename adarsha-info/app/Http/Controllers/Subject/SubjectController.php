@@ -64,7 +64,6 @@ class SubjectController extends Controller
     public function updateSubject(Request $request){
         $subjectById   =   Subject::find($request->sub_id);
         $subjectById->subject_name  =   $request->subject_name;
-        $subjectById->class_id  =   $request->class_id;
         $subjectById->status        =   $request->status;
         $subjectById->save();
         return redirect('/manage-subject')->with('message', 'Subject Update Successfully');

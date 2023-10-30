@@ -8,6 +8,7 @@ use App\Http\Controllers\Class\ClassController;
 
 //subject
 use App\Http\Controllers\Subject\SubjectController;
+use App\Http\Controllers\ClassWiseSubject\ClassBaseController;
 
 //Student
 use App\Http\Controllers\Student\StudentLoginController;
@@ -63,6 +64,10 @@ Route::get('/inactive/{id}', [SubjectController::class, 'inactiveSubject'])->nam
 Route::get('/active/{id}', [SubjectController::class, 'activeSubject'])->name('active-subject');
 Route::get('/subject-edit/{id}', [SubjectController::class, 'editSubject'])->name('edit-subject');
 Route::post('/subject-update', [SubjectController::class, 'updateSubject'])->name('subject-update');
+
+//claswiseConrroller
+Route::get('/classwise/subject', [ClassBaseController::class, 'index'])->name('add-classBaseSubject');
+Route::get('/classwise/subject/manage', [ClassBaseController::class, 'manageClasswiseSub'])->name('manage-classBaseSubject');
 
 Route::get('/logout', [AdminLoginController::class, 'logout'])->name('logout');
 Route::get('/email-check/{email}', [AddstudentController::class, 'emailCheck'])->name('email-check');

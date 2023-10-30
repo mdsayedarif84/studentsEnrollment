@@ -33,22 +33,7 @@
                                             @enderror                                          
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="class" class="col-sm-4 col-form-label text-right">Class Name</label>
-                                        <div class="col-sm-8">
-                                            <select name="class_id" class="form-select form-control @error('status') is-invalid @enderror" >
-                                                <option  disabled selected >Select Class</option>
-                                                @foreach($getClasses as $value)
-                                                    <option value="{{$value->id}}">{{$value->class_name}}</option>
-                                                @endforeach                                            
-                                            </select>
-                                            @error('status')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->has('status') ? $errors->first('status') : ' '  }}</strong>
-                                                </span>
-                                            @enderror 
-                                        </div>
-                                    </div>
+                                    
                                     <div class="form-group row">
                                         <label for="class" class="col-sm-4 col-form-label text-right">Status</label>
                                         <div class="col-sm-8">
