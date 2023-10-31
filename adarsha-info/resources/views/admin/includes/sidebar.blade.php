@@ -84,7 +84,7 @@
                         </a>
                       </li>
                       <li class="">
-                        <a class="sidenav-item-link" href="{{route('manage-classBaseSubject')}}">
+                        <a class="sidenav-item-link" href="{{route('manage-ClassWiseSubject')}}">
                           <span class="nav-text">Manage Class Subject</span>
                         </a>
                       </li>

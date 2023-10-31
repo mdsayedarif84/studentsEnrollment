@@ -26,7 +26,6 @@ return new class extends Migration
             $table->string('stu_image');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
-            $table->timestamps();
         });
     }
 

@@ -68,6 +68,10 @@ Route::post('/subject-update', [SubjectController::class, 'updateSubject'])->nam
 //claswiseConrroller
 Route::get('/classwise/subject', [ClassBaseController::class, 'index'])->name('add-classBaseSubject');
 Route::get('/classwise/subject/manage', [ClassBaseController::class, 'manageClasswiseSub'])->name('manage-classBaseSubject');
+Route::post('/save/classubject', [ClassBaseController::class, 'store'])->name('save-classubject');
+Route::get('/manage/ClassWiseSubject', [ClassBaseController::class, 'ManageClassWiseSubject'])->name('manage-ClassWiseSubject');
+
+
 
 Route::get('/logout', [AdminLoginController::class, 'logout'])->name('logout');
 Route::get('/email-check/{email}', [AddstudentController::class, 'emailCheck'])->name('email-check');

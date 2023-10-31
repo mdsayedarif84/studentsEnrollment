@@ -13,13 +13,13 @@
                 <div class="card-body">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="text-danger text-bold"> Add Subject
-                                <a href="{{route('manage-subject')}}" class="btn btn-danger btn-sm float-right">
-                                    <span class="mdi-hand-pointing-right"> </span>Manage Subject</a>
+                            <h4 class="text-danger text-bold"> Add ClassWiseSubject
+                                <a href="{{route('manage-ClassWiseSubject')}}" class="btn btn-danger btn-sm float-right">
+                                    <span class="mdi-hand-pointing-right"> </span>Manage ClassWiseSubject</a>
                             </h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{route('save-subject')}}" method="POST" enctype="multipart/form-data"  class="form-horizontal" >
+                            <form action="{{route('save-classubject')}}" method="POST" enctype="multipart/form-data"  class="form-horizontal" >
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group row">
@@ -54,9 +54,9 @@
                                             @enderror 
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="" class="col-sm-2 col-form-label">Choice Subject </label>
-                                        <div class="col-sm-10">
+                                    <div class="form-group row">
+                                        <label for="" class="col-sm-4 col-form-label text-right">Choice Subject </label>
+                                        <div class="col-sm-8">
                                             @foreach($getSubjects as $value)
                                                 <div class="form-check form-check-inline">
                                                     <input name="subName[]" value="{{$value->id}}" class="form-check-input" type="checkbox" id="inlineCheckbox1" >
