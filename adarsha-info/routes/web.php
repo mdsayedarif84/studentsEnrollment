@@ -70,6 +70,9 @@ Route::get('/classwise/subject', [ClassBaseController::class, 'index'])->name('a
 Route::get('/classwise/subject/manage', [ClassBaseController::class, 'manageClasswiseSub'])->name('manage-classBaseSubject');
 Route::post('/save/classubject', [ClassBaseController::class, 'store'])->name('save-classubject');
 Route::get('/manage/ClassWiseSubject', [ClassBaseController::class, 'ManageClassWiseSubject'])->name('manage-ClassWiseSubject');
+Route::get('/edit/ClassWiseSubject/{id}', [ClassBaseController::class, 'editClassWiseSubject'])->name('edit-classWiseSubject');
+Route::get('/delete/ClassWiseSubject', [ClassBaseController::class, 'deleteClassWiseSubject'])->name('delete-classWiseSubject');
+
 
 
 

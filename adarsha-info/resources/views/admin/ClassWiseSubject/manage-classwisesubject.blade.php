@@ -27,6 +27,7 @@
 									<th> Class Name</th>
 									<th> Subject Name</th>
 									<th> Status</th>
+									<th>Action</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -34,13 +35,21 @@
 								@foreach($classWiseData as  $item)
 									<tr >
 										<td class="details-control">{{$i++}}</td>
-										<td class="text-center">{{$item['class_name']}}</td>
+										<td >{{$item['class_name']}}</td>
 										<td>
                                             @foreach($item['subjects']  as  $subName)
                                                 <span class="badge bg-danger ">{{ $subName}}</span>
                                             @endforeach
                                         </td>
-										<td class="text-center">{{$item['status']}}</td>
+										<td >{{$item['status']}}</td>
+										<td>
+                                            <a href="{{route('edit-classWiseSubject',['id'=>$item['id']])}}" class="btn btn-warning btn-sm" title="Edit">
+												<span class="mdi mdi-playlist-edit"></span>
+                                            </a>
+                                            <a href="{{route('delete-classWiseSubject')}}" id="delete" class="btn btn-danger btn-sm" title="Delete">
+												<span class="mdi mdi-trash-can"></span>
+                                            </a>
+                                        </td>
 									</tr>
 								@endforeach
 							</tbody>

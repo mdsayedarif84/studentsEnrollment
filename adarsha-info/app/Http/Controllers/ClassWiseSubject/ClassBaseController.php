@@ -38,29 +38,36 @@ class ClassBaseController extends Controller
                                 ->get();
                                 
         $classWiseData = [];
-
         // Iterate through the retrieved data
             foreach ($classWiseSubjects as $row) {
                 $classId = $row->class_id;
                 $className = $row->class_name;
                 $subjectName = $row->subject_name;
                 $status = $row->status;
+                $id = $row->id;
 
                 // Check if the class is already in the array, if not, initialize it
                 if (!isset($classWiseData[$classId])) {
                     $classWiseData[$classId] = [
                         'class_name' => $className,
                         'status' => $status,
+                        'id' => $id,
                         'subjects' => [],
                     ];
                 }
-
                 // Add the subject to the class's subjects array
                 $classWiseData[$classId]['subjects'][] = $subjectName;
             }
-// return $classWiseData;
+//  return $classWiseData;
             // Now $classWiseData contains the classwise data
-
         return view('admin.ClassWiseSubject.manage-classwisesubject',compact('classWiseData'));
+    }
+    public function editClassWiseSubject($id)
+    {
+        $classId   =   ClassWiseSubject::findOrFail($id);
+        // return $classWiseSubjects;
+        $getClasses     =   AddClass::where('status',1)->get();
+        $getSubjects     =   Subject::where('status',1)->get();
+        return view('admin.ClassWiseSubject.edit-classBaseSubject',compact('getClasses','getSubjects','classId'));
     }
 }
