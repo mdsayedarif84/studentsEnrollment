@@ -21,6 +21,7 @@
                         <div class="card-body">
                             <form id="editData" action="{{route('save-classubject')}}" method="POST" enctype="multipart/form-data"  class="form-horizontal" >
                                 @csrf
+                                @method('PUT')
                                 <div class="card-body">
                                     <div class="form-group row">
                                         <label for="class" class="col-sm-4 col-form-label text-right">Class Name</label>
@@ -60,7 +61,7 @@
                                         <div class="col-sm-8">
                                             @foreach($getSubjects as $subject)
                                                 <div class="form-check form-check-inline">
-                                                    <input name="subjects[]" value="{{$subject->id}}"  class="form-check-input" type="checkbox" {{ $classId->hasPermissionForSubject($subject->subject_name)? 'checked':''}}>
+                                                    <input name="subjects[]" value="{{$subject->id}}"  class="form-check-input" type="checkbox" {{ in_array($subject->id, $classId->subjects->pluck('id')->toArray()) ? 'checked' : '' }}>
                                                     <label class="form-check-label">{{$subject->subject_name}}</label>
                                                 </div>
                                             @endforeach

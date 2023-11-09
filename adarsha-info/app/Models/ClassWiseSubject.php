@@ -13,4 +13,5 @@ class ClassWiseSubject extends Model
         'status',
         'subject_id',
     ];
+    
 }

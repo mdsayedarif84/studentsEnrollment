@@ -68,6 +68,7 @@ class ClassBaseController extends Controller
         // return $classWiseSubjects;
         $getClasses     =   AddClass::where('status',1)->get();
         $getSubjects     =   Subject::where('status',1)->get();
+        // return $getSubjects;
         return view('admin.ClassWiseSubject.edit-classBaseSubject',compact('getClasses','getSubjects','classId'));
     }
 }
